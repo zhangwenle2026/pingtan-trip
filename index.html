@@ -2,1069 +2,1464 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>平潭·海岛秘境 | Pingtan Island Escape</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>平潭 · 海岛秘境自驾攻略</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
---deep-blue:#0A1628;--ocean-blue:#0F2744;--card-bg:rgba(17,29,48,.88);--card-border:rgba(26,42,68,.7);
---wave-white:#F0F4F8;--text-secondary:#8BA3C1;--coral:#E8A87C;--coral-glow:#F4C19E;
---gold:#FFD700;--gold-dark:#DAA520;--danger:#FF6B6B;--success:#4ECB71;--info:#5B9FE8;
---nav-h:64px;--safe-bottom:env(safe-area-inset-bottom,0px);
---tear-blue:#00D4FF;--tear-glow:rgba(0,212,255,.4);
-}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{
-font-family:'Inter',system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
-background:var(--deep-blue);color:var(--wave-white);line-height:1.6;
-overflow-x:hidden;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);
--webkit-font-smoothing:antialiased;
-}
-h1,h2,h3,.display{font-family:'Playfair Display','Georgia',serif}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--card-border);border-radius:4px}
-
-/* === TAB TRANSITIONS === */
-.tab-section{display:none;min-height:100vh;animation:fadeSection .5s cubic-bezier(.23,1,.32,1)}
-.tab-section.active{display:block}
-@keyframes fadeSection{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-/* === BOTTOM NAV === */
-.bottom-nav{
-position:fixed;bottom:0;left:0;right:0;z-index:1000;
-background:rgba(8,18,35,.96);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);
-border-top:1px solid rgba(232,168,124,.08);padding-bottom:var(--safe-bottom);
-box-shadow:0 -4px 30px rgba(0,0,0,.4);
-}
-.bottom-nav .nav-inner{display:flex;justify-content:space-around;align-items:center;max-width:600px;margin:0 auto;height:var(--nav-h)}
-.nav-btn{
-display:flex;flex-direction:column;align-items:center;gap:2px;
-background:none;border:none;color:var(--text-secondary);
-font-size:10px;font-family:'Inter',sans-serif;font-weight:500;
-cursor:pointer;transition:all .3s cubic-bezier(.23,1,.32,1);padding:6px 4px;
--webkit-tap-highlight-color:transparent;position:relative;
-}
-.nav-btn .nav-icon{font-size:22px;transition:all .3s cubic-bezier(.23,1,.32,1)}
-.nav-btn.active{color:var(--coral)}
-.nav-btn.active .nav-icon{transform:scale(1.18) translateY(-2px)}
-.nav-btn.active::after{
-content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-width:24px;height:3px;background:linear-gradient(90deg,var(--coral),var(--gold));border-radius:3px;
-box-shadow:0 0 8px rgba(232,168,124,.5);
-}
-.nav-btn:not(.active):active{transform:scale(.9);opacity:.7}
-
-/* === HERO === */
-.hero{
-position:relative;height:100vh;min-height:660px;
-display:flex;flex-direction:column;justify-content:center;align-items:center;
-text-align:center;overflow:hidden;padding:0 24px;
-}
-.hero-bg{
-position:absolute;inset:0;z-index:0;
-background:
-radial-gradient(ellipse 180% 50% at 50% 15%,rgba(10,10,30,.9) 0%,transparent 70%),
-radial-gradient(ellipse 140% 40% at 40% 48%,rgba(255,107,53,.06) 0%,transparent 50%),
-radial-gradient(ellipse 160% 40% at 60% 48%,rgba(255,165,62,.04) 0%,transparent 50%),
-radial-gradient(ellipse 120% 30% at 50% 55%,rgba(232,168,124,.07) 0%,transparent 40%),
-linear-gradient(180deg,
-#020810 0%,#050d1a 8%,#081830 18%,#0a2048 30%,
-#0c2a55 38%,#1a3a5c 44%,#2d4a6a 48%,#1a3555 52%,
-#0d2844 58%,#0a2040 68%,#081830 80%,#050d1a 90%,#0A1628 100%);
-}
-.hero-bg::before{
-content:'';position:absolute;top:47%;left:0;right:0;height:3px;
-background:linear-gradient(90deg,transparent 5%,rgba(255,165,62,.04) 20%,rgba(255,107,53,.1) 35%,rgba(232,168,124,.15) 50%,rgba(255,107,53,.1) 65%,rgba(255,165,62,.04) 80%,transparent 95%);
-filter:blur(2px);
-}
-.hero-bg::after{
-content:'';position:absolute;top:44%;left:10%;right:10%;height:40px;
-background:radial-gradient(ellipse 100% 100% at 50% 100%,rgba(255,140,50,.05) 0%,transparent 70%);
-filter:blur(8px);
+/* ==================== RESET & BASE ==================== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #0a0a0a;
+  color: #F5F0EB;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 80px;
 }
 
-/* === STARS === */
-.stars{position:absolute;inset:0;z-index:1;overflow:hidden}
-.star{position:absolute;background:var(--wave-white);border-radius:50%}
-.star--sm{width:1px;height:1px}
-.star--md{width:2px;height:2px}
-.star--lg{width:3px;height:3px;box-shadow:0 0 4px rgba(240,244,248,.4)}
-.star--xl{width:4px;height:4px;box-shadow:0 0 6px rgba(240,244,248,.5),0 0 12px rgba(240,244,248,.2)}
-@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.85}}
-@keyframes twinkleSlow{0%,100%{opacity:.08}50%{opacity:.5}}
-@keyframes twinkleFast{0%,100%{opacity:.2}30%{opacity:1}70%{opacity:.3}}
-
-/* === OCEAN WAVES === */
-.ocean-waves{position:absolute;bottom:0;left:0;right:0;height:160px;z-index:1;overflow:hidden;pointer-events:none}
-.wave{position:absolute;bottom:0;left:-50%;width:200%;height:100%;animation-timing-function:linear;animation-iteration-count:infinite}
-.wave--1{
-height:55px;bottom:0;opacity:.12;
-background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C200,10 400,110 600,60 C800,10 1000,110 1200,60 L1200,120 L0,120Z' fill='rgba(0,212,255,0.3)'/%3E%3C/svg%3E") repeat-x;
-background-size:1200px 55px;animation:waveMove1 7s linear infinite;
-}
-.wave--2{
-height:45px;bottom:8px;opacity:.08;
-background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C150,20 350,100 600,60 C850,20 1050,100 1200,60 L1200,120 L0,120Z' fill='rgba(91,159,232,0.3)'/%3E%3C/svg%3E") repeat-x;
-background-size:1200px 45px;animation:waveMove2 11s linear infinite;
-}
-.wave--3{
-height:35px;bottom:0;opacity:.06;
-background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C300,20 500,100 700,50 C900,0 1100,80 1200,60 L1200,120 L0,120Z' fill='rgba(0,212,255,0.4)'/%3E%3C/svg%3E") repeat-x;
-background-size:1200px 35px;animation:waveMove3 15s linear infinite;
-}
-@keyframes waveMove1{from{transform:translateX(0)}to{transform:translateX(600px)}}
-@keyframes waveMove2{from{transform:translateX(0)}to{transform:translateX(-600px)}}
-@keyframes waveMove3{from{transform:translateX(0)}to{transform:translateX(600px)}}
-
-/* === WINDMILLS === */
-.windmill-scene{position:absolute;bottom:70px;left:0;right:0;height:200px;z-index:1;pointer-events:none}
-.windmill{position:absolute;bottom:0}
-.windmill-tower{
-position:absolute;bottom:0;left:50%;transform:translateX(-50%);
-width:3px;background:linear-gradient(180deg,rgba(200,210,225,.22),rgba(200,210,225,.08));border-radius:1px;
-}
-.windmill-hub{
-position:absolute;left:50%;transform:translateX(-50%);
-width:5px;height:5px;background:rgba(200,210,225,.25);border-radius:50%;
-}
-.windmill-blades{position:absolute;left:50%;transform-origin:center center}
-.windmill-blade{
-position:absolute;transform-origin:bottom center;
-width:2px;background:linear-gradient(180deg,rgba(200,210,225,.25),rgba(200,210,225,.05));
-border-radius:1px;left:50%;margin-left:-1px;bottom:50%;
-}
-@keyframes rotateBlade{from{transform:translateX(-50%) rotate(0deg)}to{transform:translateX(-50%) rotate(360deg)}}
-
-/* === BLUE TEARS === */
-.blue-tears{position:absolute;bottom:30px;left:0;right:0;height:80px;z-index:2;overflow:hidden;pointer-events:none}
-.tear{
-position:absolute;width:3px;height:3px;border-radius:50%;
-background:var(--tear-blue);
-box-shadow:0 0 6px var(--tear-glow),0 0 12px rgba(0,212,255,.2);
-}
-@keyframes tearGlow{
-0%,100%{opacity:0;transform:translateY(0) scale(.4)}
-20%{opacity:.7;transform:translateY(-6px) scale(1)}
-50%{opacity:1;transform:translateY(-12px) scale(1.1)}
-80%{opacity:.5;transform:translateY(-6px) scale(.7)}
+/* ==================== CSS VARIABLES ==================== */
+:root {
+  --gold: #C9956B;
+  --gold-light: #E0B88A;
+  --blue: #5B8FB9;
+  --coral: #E8775F;
+  --warm-white: #F5F0EB;
+  --bg: #0a0a0a;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.06);
+  --glass: rgba(10,10,10,0.75);
+  --glass-blur: 20px;
 }
 
-/* === HERO CONTENT === */
-.hero-content{position:relative;z-index:5}
-.ng-frame{
-display:inline-block;width:48px;height:32px;border:3px solid var(--gold);
-margin-bottom:16px;position:relative;
-box-shadow:0 0 15px rgba(255,215,0,.15),inset 0 0 8px rgba(255,215,0,.04);
-}
-.ng-frame::after{
-content:'PT';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;
-}
-.hero-eyebrow{
-font-family:'Inter',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;
-color:var(--coral);margin-bottom:12px;font-weight:600;text-shadow:0 0 20px rgba(232,168,124,.3);
-}
-.hero h1{
-font-size:clamp(2.8rem,9vw,4.5rem);font-weight:700;line-height:1.05;margin-bottom:8px;
-background:linear-gradient(135deg,#fff 0%,var(--coral-glow) 50%,#fff 100%);
-background-size:200% 200%;
--webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-animation:titleShimmer 6s ease-in-out infinite;
-filter:drop-shadow(0 0 30px rgba(232,168,124,.12));
-}
-@keyframes titleShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,3vw,1.3rem);color:var(--text-secondary);margin-bottom:6px;letter-spacing:1px}
-.hero-poem{
-font-family:'Inter',sans-serif;font-size:clamp(.75rem,2.2vw,.9rem);
-background:linear-gradient(90deg,var(--coral),var(--tear-blue),var(--coral));
-background-size:200% 100%;
--webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-animation:poemShimmer 8s ease-in-out infinite;
-margin-bottom:32px;letter-spacing:3px;font-weight:300;
-}
-@keyframes poemShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+/* ==================== TYPOGRAPHY ==================== */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+.font-body { font-family: 'Inter', system-ui, sans-serif; }
 
-.hero-info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:340px;margin:0 auto}
-.hero-info-item{
-background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
-border-radius:14px;padding:16px 12px;text-align:center;
-backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
-position:relative;overflow:hidden;animation:floatCard 6s ease-in-out infinite;
+/* ==================== UTILITY ==================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.hero-info-item::before{
-content:'';position:absolute;inset:0;border-radius:14px;
-background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 50%,rgba(232,168,124,.02) 100%);
-pointer-events:none;
-}
-.hero-info-item:nth-child(2){animation-delay:1.5s}
-.hero-info-item:nth-child(3){animation-delay:3s}
-.hero-info-item:nth-child(4){animation-delay:4.5s}
-@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.hero-info-item .label{font-size:10px;color:var(--text-secondary);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
-.hero-info-item .value{font-size:14px;font-weight:600;color:var(--wave-white)}
-
-/* Scroll hint */
-.scroll-hint{
-position:absolute;bottom:110px;left:50%;transform:translateX(-50%);z-index:5;
-display:flex;flex-direction:column;align-items:center;gap:6px;
-animation:scrollBounce 2s ease-in-out infinite;
-}
-.scroll-hint span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);opacity:.5}
-.scroll-arrow{width:18px;height:18px;border-right:2px solid var(--coral);border-bottom:2px solid var(--coral);transform:rotate(45deg);opacity:.4}
-@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
-
-/* === SECTION HEADERS === */
-.section-header{padding:48px 20px 24px;text-align:center;position:relative}
-.section-header .eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--coral);margin-bottom:8px;font-weight:600}
-.section-header h2{font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:6px}
-.section-header .subtitle{font-size:13px;color:var(--text-secondary);font-style:italic;font-family:'Playfair Display',serif}
-.section-header::after{
-content:'';display:block;width:60px;height:2px;margin:16px auto 0;
-background:linear-gradient(90deg,transparent,var(--coral),var(--gold),var(--coral),transparent);border-radius:2px;
-}
-.section-wave{
-width:100%;height:24px;position:relative;overflow:hidden;opacity:.12;pointer-events:none;
-}
-.section-wave::before{
-content:'';position:absolute;bottom:0;left:-50%;width:200%;height:100%;
-background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48'%3E%3Cpath d='M0,24 C200,4 400,44 600,24 C800,4 1000,44 1200,24' stroke='rgba(232,168,124,0.6)' stroke-width='1' fill='none'/%3E%3C/svg%3E") repeat-x;
-background-size:1200px 48px;
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* === CARDS === */
-.card-list{padding:0 16px 24px;display:flex;flex-direction:column;gap:14px;max-width:540px;margin:0 auto}
-.card{
-background:var(--card-bg);border:1px solid var(--card-border);
-border-radius:18px;padding:20px;position:relative;overflow:hidden;
-transition:all .4s cubic-bezier(.23,1,.32,1);
-backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-}
-.card:active{transform:scale(.97)}
-.card-glow{position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,rgba(232,168,124,.06) 0%,transparent 70%);pointer-events:none}
-.card-badge{
-display:inline-flex;align-items:center;gap:4px;
-background:rgba(232,168,124,.1);color:var(--coral);
-font-size:10px;font-weight:600;letter-spacing:1px;
-padding:5px 12px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;
-border:1px solid rgba(232,168,124,.08);
-}
-.card h3{font-size:17px;margin-bottom:4px;font-family:'Playfair Display',serif}
-.card .en-name{font-size:12px;color:var(--text-secondary);font-style:italic;margin-bottom:10px;font-family:'Playfair Display',serif}
-.card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
-.card .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.card .meta-tag{
-font-size:11px;background:rgba(255,255,255,.04);color:var(--text-secondary);
-padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.06);transition:all .3s;
-}
-.card .meta-tag.highlight{background:rgba(232,168,124,.08);color:var(--coral);border-color:rgba(232,168,124,.15)}
+/* Image fallback gradient backgrounds */
+.img-fallback-blue { background: linear-gradient(135deg, #1a3a5c, #2d6a9f, #1a3a5c); }
+.img-fallback-gold { background: linear-gradient(135deg, #5c3a1a, #9f6a2d, #5c3a1a); }
+.img-fallback-coral { background: linear-gradient(135deg, #5c2a1a, #c05a3a, #5c2a1a); }
+.img-fallback-green { background: linear-gradient(135deg, #1a3a2a, #2d7a4f, #1a3a2a); }
+.img-fallback-dark { background: linear-gradient(135deg, #1a1a2e, #2d2d5c, #1a1a2e); }
 
-/* === YUXIN BADGE === */
-.yuxin-badge{
-display:inline-flex;align-items:center;gap:4px;
-background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(218,165,32,.1),rgba(232,168,124,.1));
-color:var(--gold);font-size:11px;font-weight:700;
-padding:5px 14px;border-radius:20px;margin-bottom:10px;
-border:1px solid rgba(255,215,0,.25);
-box-shadow:0 0 12px rgba(255,215,0,.06),inset 0 0 8px rgba(255,215,0,.04);
-text-shadow:0 0 8px rgba(255,215,0,.3);animation:goldPulse 3s ease-in-out infinite;letter-spacing:.5px;
+/* ==================== HERO SECTION ==================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-@keyframes goldPulse{0%,100%{box-shadow:0 0 12px rgba(255,215,0,.06)}50%{box-shadow:0 0 20px rgba(255,215,0,.12)}}
-
-/* Food emoji bg */
-.food-emoji-bg{position:absolute;top:10px;right:14px;font-size:38px;opacity:.05;pointer-events:none;transform:rotate(12deg)}
-
-/* === SPOT GRADIENT BORDERS === */
-.spot-gradient{position:relative;border:none !important}
-.spot-gradient::before{
-content:'';position:absolute;inset:-1px;border-radius:18px;padding:1px;pointer-events:none;
--webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
--webkit-mask-composite:xor;mask-composite:exclude;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
-.spot-blue::before{background:linear-gradient(135deg,rgba(0,212,255,.3),rgba(91,159,232,.15),transparent 60%)}
-.spot-orange::before{background:linear-gradient(135deg,rgba(255,107,53,.3),rgba(255,165,62,.15),transparent 60%)}
-.spot-green::before{background:linear-gradient(135deg,rgba(78,203,113,.25),rgba(78,203,113,.1),transparent 60%)}
-.spot-coral::before{background:linear-gradient(135deg,rgba(232,168,124,.3),rgba(244,193,158,.15),transparent 60%)}
-.spot-purple::before{background:linear-gradient(135deg,rgba(138,100,220,.3),rgba(180,140,255,.15),transparent 60%)}
-.spot-gold::before{background:linear-gradient(135deg,rgba(255,215,0,.25),rgba(218,165,32,.12),transparent 60%)}
-.spot-teal::before{background:linear-gradient(135deg,rgba(0,180,180,.25),rgba(0,200,200,.12),transparent 60%)}
-
-/* === TIMELINE === */
-.timeline{padding:0 16px 24px;max-width:540px;margin:0 auto}
-.timeline-day{position:relative;padding-left:32px;margin-bottom:8px}
-.timeline-day::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--coral),var(--card-border))}
-.timeline-day:last-child::before{display:none}
-.timeline-dot{
-position:absolute;left:4px;top:18px;width:14px;height:14px;
-background:var(--coral);border-radius:50%;z-index:1;border:3px solid var(--deep-blue);
-box-shadow:0 0 8px rgba(232,168,124,.3);
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.timeline-card{
-background:var(--card-bg);border:1px solid var(--card-border);
-border-radius:14px;padding:18px;margin-bottom:12px;cursor:pointer;
-transition:all .3s cubic-bezier(.23,1,.32,1);
-backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-}
-.timeline-card:active{transform:scale(.98)}
-.timeline-card .day-label{font-size:10px;color:var(--coral);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:4px}
-.timeline-card .day-title{font-size:16px;font-weight:700;margin-bottom:4px;font-family:'Playfair Display',serif}
-.timeline-card .day-theme{font-size:12px;color:var(--text-secondary);font-style:italic;margin-bottom:10px}
-.timeline-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.timeline-detail.open{max-height:600px}
-.timeline-item{display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.04);font-size:13px;color:var(--text-secondary);line-height:1.6}
-.timeline-item .time-dot{flex-shrink:0;width:6px;height:6px;background:var(--coral);border-radius:50%;margin-top:8px;opacity:.6}
-.timeline-expand-hint{font-size:11px;color:var(--text-secondary);opacity:.5;text-align:right;margin-top:4px}
-
-/* === WEATHER === */
-.weather-alert{
-margin:0 16px 14px;max-width:508px;margin-left:auto;margin-right:auto;
-background:linear-gradient(135deg,rgba(255,107,107,.08),rgba(255,107,107,.03));
-border:1px solid rgba(255,107,107,.2);border-radius:14px;padding:18px;
-}
-.weather-alert .alert-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.weather-alert .alert-icon{font-size:24px}
-.weather-alert .alert-title{font-size:14px;font-weight:700;color:var(--danger)}
-.weather-alert .alert-level{font-size:10px;background:rgba(91,159,232,.2);color:var(--info);padding:2px 8px;border-radius:10px;font-weight:600}
-.weather-alert p{font-size:12px;color:var(--text-secondary);line-height:1.7}
-.weather-grid{padding:0 16px;max-width:540px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
-.weather-card{
-background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:16px;text-align:center;
-backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:all .3s ease;
-}
-.weather-card .w-date{font-size:11px;color:var(--text-secondary);margin-bottom:2px}
-.weather-card .w-day{font-size:12px;font-weight:600;color:var(--coral);margin-bottom:8px}
-.weather-card .w-icon{font-size:32px;margin-bottom:6px}
-.weather-card .w-temp{font-size:24px;font-weight:700;margin-bottom:4px}
-.weather-card .w-desc{font-size:11px;color:var(--text-secondary)}
-.weather-card .w-wind{font-size:10px;color:var(--text-secondary);opacity:.7;margin-top:2px}
-
-/* === SAFETY === */
-.safety-list{padding:0 16px 24px;max-width:540px;margin:0 auto}
-.safety-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.safety-item:last-child{border-bottom:none}
-.safety-num{
-flex-shrink:0;width:24px;height:24px;
-background:linear-gradient(135deg,rgba(232,168,124,.15),rgba(232,168,124,.06));
-color:var(--coral);border-radius:8px;display:flex;align-items:center;justify-content:center;
-font-size:11px;font-weight:700;border:1px solid rgba(232,168,124,.1);
-}
-.safety-item p{font-size:13px;color:var(--text-secondary);line-height:1.6}
-
-/* === MISC CARD STYLES === */
-.spot-star{
-position:absolute;top:16px;right:16px;font-size:10px;
-background:linear-gradient(135deg,rgba(232,168,124,.15),rgba(255,215,0,.1));
-color:var(--coral);padding:4px 10px;border-radius:10px;font-weight:600;letter-spacing:1px;
-border:1px solid rgba(232,168,124,.15);
-}
-.card .tip-box{margin-top:12px;padding:10px 12px;background:rgba(232,168,124,.06);border-left:2px solid var(--coral);border-radius:0 8px 8px 0;font-size:12px;color:var(--coral-glow);line-height:1.6}
-.card .warning-box{margin-top:10px;padding:10px 12px;background:rgba(255,107,107,.06);border-left:2px solid var(--danger);border-radius:0 8px 8px 0;font-size:12px;color:var(--danger);line-height:1.6;opacity:.85}
-.child-badge{
-display:inline-flex;align-items:center;gap:4px;
-background:rgba(78,203,113,.08);color:var(--success);
-font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px;margin-bottom:10px;
-border:1px solid rgba(78,203,113,.12);
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,10,10,0.95) 0%,
+    rgba(10,10,10,0.6) 30%,
+    rgba(10,10,10,0.2) 60%,
+    rgba(10,10,10,0.15) 100%
+  );
+  z-index: 1;
 }
 
-/* === STONE HOUSE TEXTURE DECORATION === */
-.stone-texture{
-position:relative;overflow:hidden;
+/* Typhoon banner */
+.typhoon-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(200, 50, 50, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
-.stone-texture::after{
-content:'';position:absolute;top:0;right:0;width:60px;height:60px;opacity:.03;pointer-events:none;
-background:
-repeating-conic-gradient(rgba(200,180,160,.3) 0% 25%, transparent 0% 50%) 0 0/12px 12px,
-repeating-conic-gradient(rgba(180,160,140,.2) 0% 25%, transparent 0% 50%) 6px 6px/12px 12px;
-border-radius:0 18px 0 0;
+.typhoon-banner .pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff6b6b;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
 }
 
-/* === SHELL DECORATIONS === */
-.shell-deco{position:relative}
-.shell-deco::after{
-content:'🐚';position:absolute;bottom:12px;right:16px;font-size:16px;opacity:.08;pointer-events:none;
+/* Logo */
+.hero-logo {
+  position: absolute;
+  top: 60px;
+  left: 24px;
+  z-index: 5;
+  border: 1.5px solid var(--gold);
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.hero-logo .logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--gold);
+}
+.hero-logo .logo-sub {
+  font-size: 7px;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  opacity: 0.8;
+  text-transform: uppercase;
 }
 
-/* === REVEAL ANIMATIONS === */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-
-/* === HOTEL CARD PREMIUM === */
-.hotel-card{position:relative}
-.hotel-card::after{
-content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-background:linear-gradient(90deg,var(--coral),var(--gold),var(--coral));
-border-radius:0 0 18px 18px;opacity:.3;
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 0 24px;
+}
+.hero-title-cn {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(64px, 15vw, 120px);
+  font-weight: 800;
+  letter-spacing: 12px;
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--warm-white) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle-cn {
+  font-size: clamp(16px, 4vw, 24px);
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: var(--warm-white);
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+.hero-subtitle-en {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(12px, 2.5vw, 16px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 40px;
 }
 
-@media(min-width:768px){
-.hero-info{grid-template-columns:repeat(4,1fr);max-width:560px}
-.weather-grid{grid-template-columns:repeat(4,1fr)}
+/* Trip summary bar */
+.trip-bar {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0 24px;
+}
+.trip-bar .chip {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: rgba(245,240,235,0.85);
+  white-space: nowrap;
+}
+.trip-bar .chip .accent { color: var(--gold); }
+
+/* Scroll indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  animation: bounce 2.5s ease-in-out infinite;
+  color: rgba(245,240,235,0.4);
+  font-size: 24px;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(12px); }
+}
+
+/* ==================== TAB BAR ==================== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+}
+.tab-btn {
+  background: none;
+  border: none;
+  color: rgba(245,240,235,0.4);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  transition: color 0.3s ease;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+.tab-btn .tab-icon { font-size: 22px; }
+.tab-btn.active {
+  color: var(--gold);
+}
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+
+/* ==================== SECTIONS / PANELS ==================== */
+.panel {
+  display: none;
+  min-height: calc(100vh - 80px);
+}
+.panel.active { display: block; }
+
+/* Section banner */
+.section-banner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.section-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-banner .banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+.section-banner .banner-title-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+.section-banner .banner-title-cn {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--warm-white);
+  letter-spacing: 4px;
+}
+
+/* Content wrapper */
+.content-wrap { padding: 0 16px 40px; }
+
+/* ==================== ITINERARY CARDS ==================== */
+.day-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.day-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.day-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+.day-info { flex: 1; }
+.day-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.day-date {
+  font-size: 12px;
+  color: rgba(245,240,235,0.5);
+  margin-top: 2px;
+}
+.day-tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.day-items {
+  padding: 0 20px 20px;
+  list-style: none;
+}
+.day-items li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.day-items li:last-child { border-bottom: none; }
+.day-items li .item-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.day-items li .item-text { flex: 1; }
+.day-items li .item-note {
+  font-size: 12px;
+  color: rgba(245,240,235,0.4);
+  display: block;
+  margin-top: 2px;
+}
+
+/* Day color themes */
+.day-card.day-1 .day-header { border-bottom: 2px solid var(--blue); }
+.day-card.day-1 .day-number { color: var(--blue); }
+.day-card.day-1 .day-tag { background: rgba(91,143,185,0.15); color: var(--blue); }
+
+.day-card.day-2 .day-header { border-bottom: 2px solid var(--gold); }
+.day-card.day-2 .day-number { color: var(--gold); }
+.day-card.day-2 .day-tag { background: rgba(201,149,107,0.15); color: var(--gold); }
+
+.day-card.day-3 .day-header { border-bottom: 2px solid var(--coral); }
+.day-card.day-3 .day-number { color: var(--coral); }
+.day-card.day-3 .day-tag { background: rgba(232,119,95,0.15); color: var(--coral); }
+
+.day-card.day-4 .day-header { border-bottom: 2px solid rgba(245,240,235,0.3); }
+.day-card.day-4 .day-number { color: rgba(245,240,235,0.5); }
+.day-card.day-4 .day-tag { background: rgba(245,240,235,0.08); color: rgba(245,240,235,0.6); }
+
+/* ==================== FOOD CARDS ==================== */
+.food-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.food-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.food-card.recommended {
+  border-color: rgba(201,149,107,0.3);
+}
+.food-card.recommended::before {
+  content: '🌟 雨鑫推荐';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  background: linear-gradient(135deg, var(--gold), #d4a574);
+  color: #1a1a1a;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+.food-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+.food-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.food-img-wrap .food-emoji-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+}
+.food-info {
+  padding: 16px;
+}
+.food-name-cn {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.food-name-en {
+  font-size: 12px;
+  color: var(--gold);
+  opacity: 0.7;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.food-desc {
+  font-size: 13px;
+  color: rgba(245,240,235,0.7);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.food-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(245,240,235,0.45);
+}
+.food-price {
+  color: var(--coral);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ==================== SCENIC CARDS ==================== */
+.scenic-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.scenic-img-wrap {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+.scenic-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.scenic-img-wrap .scenic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 50%);
+}
+.scenic-img-wrap .scenic-name {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 2;
+}
+.scenic-img-wrap .scenic-name h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.scenic-img-wrap .scenic-name .star { color: var(--gold); margin-left: 6px; font-size: 18px; }
+.scenic-img-wrap .scenic-name .scenic-oneliner {
+  font-size: 13px;
+  color: rgba(245,240,235,0.7);
+  font-style: italic;
+}
+.scenic-info {
+  padding: 16px;
+}
+.scenic-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(245,240,235,0.6);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.scenic-detail .detail-icon { flex-shrink: 0; font-size: 14px; }
+.scenic-warn {
+  background: rgba(200,50,50,0.1);
+  border: 1px solid rgba(200,50,50,0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #ff8a8a;
+  margin-top: 8px;
+}
+
+/* ==================== KIDS / FAMILY CARDS ==================== */
+.family-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.family-emoji {
+  font-size: 40px;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+}
+.family-content { flex: 1; }
+.family-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.family-where {
+  font-size: 12px;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+.family-desc {
+  font-size: 13px;
+  color: rgba(245,240,235,0.6);
+  line-height: 1.5;
+}
+.family-tip {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  background: rgba(91,143,185,0.12);
+  color: var(--blue);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+/* ==================== WEATHER CARDS ==================== */
+.weather-section { padding: 0 16px 40px; }
+
+.typhoon-card {
+  background: linear-gradient(135deg, rgba(200,50,50,0.15), rgba(200,80,50,0.08));
+  border: 1px solid rgba(200,50,50,0.25);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.typhoon-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.typhoon-icon { font-size: 32px; }
+.typhoon-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff8a8a;
+}
+.typhoon-level {
+  font-size: 12px;
+  background: rgba(255,100,100,0.2);
+  color: #ff8a8a;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.typhoon-body {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(245,240,235,0.7);
+}
+.typhoon-body ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+.typhoon-body ul li {
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+.typhoon-body ul li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: #ff8a8a;
+  font-weight: bold;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.weather-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+.weather-day {
+  font-size: 12px;
+  color: rgba(245,240,235,0.5);
+  margin-bottom: 4px;
+}
+.weather-date {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.weather-icon-big { font-size: 36px; margin-bottom: 8px; }
+.weather-temp {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--warm-white);
+}
+.weather-desc {
+  font-size: 12px;
+  color: rgba(245,240,235,0.5);
+  margin-top: 4px;
+}
+.weather-wind {
+  font-size: 11px;
+  color: rgba(245,240,235,0.35);
+  margin-top: 2px;
+}
+
+.safety-tips {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+}
+.safety-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.safety-list {
+  list-style: none;
+  padding: 0;
+}
+.safety-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 13px;
+  line-height: 1.6;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: rgba(245,240,235,0.7);
+}
+.safety-list li:last-child { border-bottom: none; }
+.safety-list li .s-icon { font-size: 16px; flex-shrink: 0; }
+
+/* ==================== RESPONSIVE ==================== */
+@media (min-width: 480px) {
+  .food-grid { grid-template-columns: 1fr 1fr; }
+  .food-img-wrap { height: 160px; }
+}
+@media (min-width: 768px) {
+  .content-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px 40px; }
+  .weather-section { max-width: 680px; margin: 0 auto; }
+  .section-banner { height: 260px; }
+  .scenic-img-wrap { height: 320px; }
 }
 </style>
 </head>
 <body>
 
-<div class="typhoon-banner" id="typhoonBanner">
-<span class="pulse"></span>
-🌀 台风蓝色预警：台风"海豚"影响福建沿海，注意安全
-</div>
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="hero">
+  <!-- Typhoon warning banner -->
+  <div class="typhoon-banner">
+    <span class="pulse-dot"></span>
+    🌀 台风「海豚」蓝色预警 · 关注天气变化，注意安全
+  </div>
 
-<!-- TAB 1: HOME -->
-<section class="tab-section active" id="tab-home">
-<div class="hero">
-<div class="hero-bg"></div>
-<div class="stars" id="stars"></div>
+  <!-- Background image -->
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="平潭全景"
+         onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1b2a,#1b3a4b,#0d1b2a)';this.remove();">
+  </div>
+  <div class="hero-overlay"></div>
 
-<!-- Windmills on horizon -->
-<div class="windmill-scene" id="windmillScene"></div>
+  <!-- National Geographic style logo -->
+  <div class="hero-logo">
+    <span class="logo-main">PINGTAN</span>
+    <span class="logo-sub">Island Escape</span>
+  </div>
 
-<!-- Ocean waves -->
-<div class="ocean-waves">
-<div class="wave wave--1"></div>
-<div class="wave wave--2"></div>
-<div class="wave wave--3"></div>
-</div>
+  <!-- Center content -->
+  <div class="hero-content">
+    <h1 class="hero-title-cn font-display">平潭</h1>
+    <p class="hero-subtitle-cn">海岛秘境自驾攻略</p>
+    <p class="hero-subtitle-en font-display">The Hidden Gem of Fujian Coast</p>
+  </div>
 
-<!-- Blue tears particles -->
-<div class="blue-tears" id="blueTears"></div>
+  <!-- Trip bar -->
+  <div class="trip-bar">
+    <span class="chip"><span class="accent">8.9</span> SUN → <span class="accent">8.12</span> WED</span>
+    <span class="chip">晋江 ↔ 平潭</span>
+    <span class="chip"><span class="accent">4</span>天<span class="accent">3</span>晚</span>
+  </div>
 
-<div class="hero-content">
-<div class="ng-frame"></div>
-<div class="hero-eyebrow">2026 · 海岛秘境之旅</div>
-<h1>平潭·海岛秘境</h1>
-<p class="hero-sub">Pingtan Island Escape</p>
-<p class="hero-poem">风车转动的海岸，蓝眼泪落入星河</p>
-<div class="hero-info">
-<div class="hero-info-item reveal"><div class="label">日期</div><div class="value">8.9 — 8.12</div></div>
-<div class="hero-info-item reveal reveal-delay-1"><div class="label">行程</div><div class="value">4天3晚</div></div>
-<div class="hero-info-item reveal reveal-delay-2"><div class="label">路线</div><div class="value">晋江 ↔ 平潭</div></div>
-<div class="hero-info-item reveal reveal-delay-3"><div class="label">住宿</div><div class="value">国惠国际酒店</div></div>
-</div>
-</div>
-
-<!-- Scroll down hint -->
-<div class="scroll-hint">
-<span>Scroll</span>
-<div class="scroll-arrow"></div>
-</div>
-</div>
-
-<div class="card-list" style="margin-top:-40px;position:relative;z-index:3">
-<div class="card hotel-card reveal">
-<div class="card-glow"></div>
-<div class="card-badge">🏨 五星酒店 · 携程 4.8</div>
-<h3>平潭国惠国际酒店</h3>
-<p class="en-name">Guohui International Hotel, Pingtan</p>
-<p>A级亲子酒店，配备儿童乐园、亲子主题房、亲子水上乐园。坐落于金井湾商务营运中心，尽享海岛度假体验。</p>
-<div class="meta">
-<span class="meta-tag">👶 亲子主题房</span>
-<span class="meta-tag">🏊 水上乐园</span>
-<span class="meta-tag">🎠 儿童乐园</span>
-<span class="meta-tag">🔌 充电桩</span>
-</div>
-</div>
-</div>
+  <!-- Scroll down -->
+  <div class="scroll-down">↓</div>
 </section>
 
-<!-- TAB 2: ITINERARY -->
-<section class="tab-section" id="tab-itinerary">
-<div class="section-header">
-<div class="eyebrow">Itinerary</div>
-<h2>行程时间轴</h2>
-<p class="subtitle">4 days · 3 nights · Island Discovery</p>
-</div>
-<div class="section-wave"></div>
-<div class="timeline">
-<div class="timeline-day reveal">
-<div class="timeline-dot"></div>
-<div class="timeline-card" onclick="toggleDay(this)">
-<div class="day-label">Day 1 · 8月9日 周日</div>
-<div class="day-title">出发 · 抵达</div>
-<div class="day-theme">晋江 → 平潭，开启海岛之旅</div>
-<div class="timeline-detail">
-<div class="timeline-item"><span class="time-dot"></span><div>🚗 晋江出发 → 平潭（约3小时，沈海高速 + 平潭海峡大桥）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🏨 抵达国惠国际酒店，办理入住</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🌅 傍晚酒店周边散步，熟悉环境</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🍽️ 晚餐：酒店附近觅食，初探平潭味道</div></div>
-</div>
-<div class="timeline-expand-hint">点击展开 ↓</div>
-</div>
-</div>
-<div class="timeline-day reveal reveal-delay-1">
-<div class="timeline-dot"></div>
-<div class="timeline-card" onclick="toggleDay(this)">
-<div class="day-label">Day 2 · 8月10日 周一</div>
-<div class="day-title">探索 · 打卡</div>
-<div class="day-theme">石头厝、风车田、蓝眼泪</div>
-<div class="timeline-detail">
-<div class="timeline-item"><span class="time-dot"></span><div>🏘️ 上午：北港村石头厝（百年石头房，文艺打卡圣地）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🍜 中午：品尝平潭特色美食（时来运转、海蛎煎）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🌬️ 下午：长江澳风车田（海边风车拍照，日落时分最美）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🏖️ 傍晚：坛南湾沙滩（亲子戏水、踏浪）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>✨ 晚上：蓝眼泪观赏（坛南湾/龙凤头，需天黑+退潮）</div></div>
-</div>
-<div class="timeline-expand-hint">点击展开 ↓</div>
-</div>
-</div>
-<div class="timeline-day reveal reveal-delay-2">
-<div class="timeline-dot"></div>
-<div class="timeline-card" onclick="toggleDay(this)">
-<div class="day-label">Day 3 · 8月11日 周二</div>
-<div class="day-title">深度 · 体验</div>
-<div class="day-theme">古城探秘、亲子乐园、二刷蓝眼泪</div>
-<div class="timeline-detail">
-<div class="timeline-item"><span class="time-dot"></span><div>🏯 上午：海坛古城 / 仙人井景区（天然海蚀洞奇观）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🍲 中午：特色美食探店（八珍炒糕、紫菜焖饭）</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🏊 下午：酒店亲子水上乐园 / 儿童乐园</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🚴 傍晚：环岛路骑行 / 自驾兜风看海</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🌊 晚上：二刷蓝眼泪（如天气允许）</div></div>
-</div>
-<div class="timeline-expand-hint">点击展开 ↓</div>
-</div>
-</div>
-<div class="timeline-day reveal reveal-delay-3">
-<div class="timeline-dot"></div>
-<div class="timeline-card" onclick="toggleDay(this)">
-<div class="day-label">Day 4 · 8月12日 周三</div>
-<div class="day-title">归途 · 回味</div>
-<div class="day-theme">带着海风的记忆，返回晋江</div>
-<div class="timeline-detail">
-<div class="timeline-item"><span class="time-dot"></span><div>🌅 上午：酒店早餐，享受最后的海岛时光</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🏨 中午前退房 check-out</div></div>
-<div class="timeline-item"><span class="time-dot"></span><div>🚗 自驾返回晋江（约3小时车程）</div></div>
-</div>
-<div class="timeline-expand-hint">点击展开 ↓</div>
-</div>
-</div>
-</div>
-</section>
+<!-- ==================== PANELS ==================== -->
 
-<!-- TAB 3: FOOD -->
-<section class="tab-section" id="tab-food">
-<div class="section-header">
-<div class="eyebrow">Local Cuisine</div>
-<h2>美食地图</h2>
-<p class="subtitle">Taste of Pingtan Island</p>
-</div>
-<div class="section-wave"></div>
-<div class="card-list">
-<div class="card reveal shell-deco">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🦪</span>
-<div class="yuxin-badge">🌟 雨鑫推荐</div>
-<h3>海蛎煎</h3>
-<p class="en-name">Oyster Omelette</p>
-<p>平潭最经典的小吃，新鲜海蛎搭配地瓜粉和鸡蛋煎制，外酥里嫩，蘸上甜辣酱，鲜美无比。几乎每家大排档都有，但街边老摊最地道。</p>
-<div class="meta">
-<span class="meta-tag highlight">🔥 必吃</span>
-<span class="meta-tag">💰 人均 15-25元</span>
-<span class="meta-tag">📍 街边小摊/大排档</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🥟</span>
-<div class="yuxin-badge">🌟 雨鑫推荐</div>
-<h3>时来运转</h3>
-<p class="en-name">Shílái Yùnzhuǎn</p>
-<p>平潭传统名点，地瓜粉皮包裹鲜美馅料（猪肉、虾仁、紫菜等），形如饺子，口感Q弹软糯。寓意时来运转、好运连连，逢年过节必做的点心。</p>
-<div class="meta">
-<span class="meta-tag highlight">🔥 必吃</span>
-<span class="meta-tag">💰 人均 20-35元</span>
-<span class="meta-tag">📍 当地餐馆</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🍳</span>
-<h3>八珍炒糕</h3>
-<p class="en-name">Eight-Treasure Fried Cake</p>
-<p>用地瓜粉制成年糕，搭配虾仁、蛏子、鱿鱼、香菇等八种配料翻炒，Q弹鲜香。平潭宴席上的经典大菜，满满的海鲜风味。</p>
-<div class="meta">
-<span class="meta-tag highlight">🔥 特色</span>
-<span class="meta-tag">💰 人均 40-60元</span>
-<span class="meta-tag">📍 特色餐厅</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🥜</span>
-<h3>天长地久</h3>
-<p class="en-name">Tiāncháng Dìjiǔ</p>
-<p>花生馅甜点，地瓜粉皮包裹炒花生碎和白糖，甜而不腻。与"时来运转"并称平潭两大传统名点，寓意天长地久。</p>
-<div class="meta">
-<span class="meta-tag">🍬 甜点</span>
-<span class="meta-tag">💰 人均 15-25元</span>
-<span class="meta-tag">📍 当地餐馆/小摊</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🫓</span>
-<div class="yuxin-badge">🌟 雨鑫推荐</div>
-<h3>光饼</h3>
-<p class="en-name">Guāng Bǐng</p>
-<p>福建传统面饼，外皮酥脆内里柔软，可夹紫菜、海蛎等馅料。平潭光饼带有独特海味，是最佳伴手礼之一。</p>
-<div class="meta">
-<span class="meta-tag">🥖 面点</span>
-<span class="meta-tag">💰 人均 5-15元</span>
-<span class="meta-tag">📍 街边烘焙摊</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🍚</span>
-<h3>紫菜焖饭</h3>
-<p class="en-name">Seaweed Braised Rice</p>
-<p>用当地紫菜与米饭同焖，加入猪肉丁、香菇等配料，鲜香扑鼻。平潭紫菜品质极佳，做出的焖饭格外美味。</p>
-<div class="meta">
-<span class="meta-tag">🍚 主食</span>
-<span class="meta-tag">💰 人均 20-35元</span>
-<span class="meta-tag">📍 当地餐馆</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🐟</span>
-<h3>鱼丸 / 鱼面</h3>
-<p class="en-name">Fish Balls / Fish Noodles</p>
-<p>鱼丸用新鲜鱼肉手打而成，弹牙鲜美；鱼面则是鱼肉制成面条，口感独特。加入骨汤煮成一碗，是平潭人的日常美味。</p>
-<div class="meta">
-<span class="meta-tag">🐟 海鲜</span>
-<span class="meta-tag">💰 人均 15-30元</span>
-<span class="meta-tag">📍 早餐店/面馆</span>
-</div>
-</div>
-<div class="card reveal shell-deco">
-<div class="card-glow"></div>
-<span class="food-emoji-bg">🦐</span>
-<h3>海鲜大排档</h3>
-<p class="en-name">Seafood Night Market</p>
-<p>平潭靠海，海鲜新鲜到极致！石斑鱼清蒸、花蟹白灼、基围虾盐焗、鱿鱼铁板烧……到海鲜大排档点上一桌，才是海岛正确打开方式。</p>
-<div class="meta">
-<span class="meta-tag highlight">🦐 海鲜盛宴</span>
-<span class="meta-tag">💰 人均 80-150元</span>
-<span class="meta-tag">📍 龙凤头海鲜街</span>
-</div>
-</div>
-</div>
-</section>
+<!-- 🗺 攻略 / Itinerary -->
+<div class="panel active" id="panel-route">
+  <div class="section-banner">
+    <img src="images/bridge.jpg" alt="海峡大桥"
+         onerror="this.parentElement.classList.add('img-fallback-blue');this.remove();">
+    <div class="banner-overlay">
+      <span class="banner-title-en font-display">Road Trip Route</span>
+      <span class="banner-title-cn font-display">自驾路线</span>
+    </div>
+  </div>
 
-<!-- TAB 4: SPOTS -->
-<section class="tab-section" id="tab-spots">
-<div class="section-header">
-<div class="eyebrow">Photo Spots</div>
-<h2>打卡美景</h2>
-<p class="subtitle">Capture the Island Beauty</p>
-</div>
-<div class="section-wave"></div>
-<div class="card-list">
-<div class="card reveal spot-gradient spot-blue">
-<div class="card-glow"></div>
-<span class="spot-star">⭐ 重点推荐</span>
-<h3>🌊 蓝眼泪</h3>
-<p class="en-name">Blue Tears · Bioluminescence</p>
-<p>大自然的魔法——海水中的夜光藻（甲藻）受到扰动后发出梦幻蓝色荧光，宛如海洋在流泪。平潭是中国最佳蓝眼泪观赏地之一，每年4-8月为最佳季节。</p>
-<div class="tip-box">📸 拍照Tips：需天黑后（20:00后）+ 退潮时段 + 甲藻聚集。手机夜景模式/长曝光效果最佳。推荐观赏点：坛南湾、龙凤头海滩、北港村。</div>
-<div class="warning-box">⚠️ 台风期间蓝眼泪出现概率降低，海浪较大时请勿靠近水边。</div>
-<div class="meta">
-<span class="meta-tag highlight">✨ 4-8月最佳</span>
-<span class="meta-tag">🌙 需天黑+退潮</span>
-<span class="meta-tag">📍 坛南湾/龙凤头/北港村</span>
-</div>
-</div>
-<div class="card reveal spot-gradient spot-orange">
-<div class="card-glow"></div>
-<h3>🌬️ 长江澳风车田</h3>
-<p class="en-name">Changjiang'ao Wind Farm</p>
-<p>海边成排的白色风力发电机，与蓝天碧海构成极致画面。日落时分最美，风车在金色光线中缓缓转动，是平潭最具辨识度的打卡地标。</p>
-<div class="tip-box">📸 拍照Tips：日落前1小时到达，逆光剪影效果绝佳。沙滩上拍仰角更壮观。</div>
-<div class="meta">
-<span class="meta-tag highlight">🌅 日落最美</span>
-<span class="meta-tag">📍 长江澳沙滩</span>
-<span class="meta-tag">🆓 免费</span>
-</div>
-</div>
-<div class="card reveal spot-gradient spot-coral stone-texture">
-<div class="card-glow"></div>
-<h3>🏘️ 北港村石头厝</h3>
-<p class="en-name">Beigangcun Stone Houses</p>
-<p>百年历史的石头房子村落，用当地花岗岩砌成，冬暖夏凉。如今被改造为民宿和文创空间，古朴与文艺完美结合，是摄影和漫步的好去处。</p>
-<div class="tip-box">📸 拍照Tips：清晨或傍晚光线柔和时最佳。石头巷子里有很多文艺小店，随手都是大片。</div>
-<div class="meta">
-<span class="meta-tag">🎨 文艺打卡</span>
-<span class="meta-tag">📍 平潭北港村</span>
-<span class="meta-tag">🆓 免费</span>
-</div>
-</div>
-<div class="card reveal spot-gradient spot-gold">
-<div class="card-glow"></div>
-<h3>🏖️ 坛南湾</h3>
-<p class="en-name">Tannan Bay</p>
-<p>平潭最美的白沙滩，沙质细腻，海水清澈。白天可以戏水踏浪、堆沙堡，夜晚有机会邂逅蓝眼泪，一个沙滩两种体验。</p>
-<div class="tip-box">📸 拍照Tips：午后阳光下沙滩呈银白色。防晒一定要到位！</div>
-<div class="meta">
-<span class="meta-tag highlight">🏖️ 白沙滩</span>
-<span class="meta-tag">📍 平潭坛南湾</span>
-<span class="meta-tag">👶 亲子友好</span>
-</div>
-</div>
-<div class="card reveal spot-gradient spot-purple">
-<div class="card-glow"></div>
-<h3>🏯 海坛古城</h3>
-<p class="en-name">Haitan Ancient Town</p>
-<p>以闽南建筑风格为主的仿古建筑群，融合平潭渔家文化。青石板路、红砖厝、石牌坊，适合悠闲漫步，体验平潭历史人文。</p>
-<div class="meta">
-<span class="meta-tag">🏛️ 人文历史</span>
-<span class="meta-tag">📍 海坛古城景区</span>
-<span class="meta-tag">🎭 民俗体验</span>
-</div>
-</div>
-<div class="card reveal spot-gradient spot-teal">
-<div class="card-glow"></div>
-<h3>🕳️ 仙人井</h3>
-<p class="en-name">Immortal's Well</p>
-<p>天然海蚀洞，海水从洞底涌入，涨潮时水柱冲天，气势磅礴。崖边俯瞰深不见底的洞穴，大自然的鬼斧神工令人叹为观止。</p>
-<div class="warning-box">⚠️ 台风期间崖边风大浪急，请注意安全，可能临时关闭。</div>
-<div class="meta">
-<span class="meta-tag highlight">🌊 自然奇观</span>
-<span class="meta-tag">📍 流水镇</span>
-<span class="meta-tag">⏰ 涨潮时最壮观</span>
-</div>
-</div>
-<div class="card reveal spot-gradient spot-green">
-<div class="card-glow"></div>
-<h3>🌉 平潭海峡大桥</h3>
-<p class="en-name">Pingtan Strait Bridge</p>
-<p>中国最长跨海大桥之一，连接大陆与平潭岛。自驾行驶在桥上，两侧碧海蓝天无际，是进入平潭的第一道震撼风景线。</p>
-<div class="tip-box">📸 拍照Tips：从岛上远眺大桥全景效果更佳。夜间桥灯亮起也很壮观。</div>
-<div class="meta">
-<span class="meta-tag">🚗 自驾必经</span>
-<span class="meta-tag">📍 进出平潭主通道</span>
-<span class="meta-tag">🌉 跨海大桥</span>
-</div>
-</div>
-</div>
-</section>
+  <div class="content-wrap">
+    <!-- Day 1 -->
+    <div class="day-card day-1 fade-in">
+      <div class="day-header">
+        <span class="day-number font-display">01</span>
+        <div class="day-info">
+          <div class="day-label">出发日</div>
+          <div class="day-date">8/9 周日</div>
+        </div>
+        <span class="day-tag">🚗 启程</span>
+      </div>
+      <ul class="day-items">
+        <li>
+          <span class="item-icon">🚗</span>
+          <div class="item-text">晋江出发 → 平潭<span class="item-note">沈海高速+海峡大桥，约3小时</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🏨</span>
+          <div class="item-text">国惠国际酒店 check-in<span class="item-note">放好行李，休整一下</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🌅</span>
+          <div class="item-text">傍晚酒店周边散步<span class="item-note">感受海岛黄昏的悠闲</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🍽</span>
+          <div class="item-text">晚餐觅食<span class="item-note">酒店附近尝点当地小吃</span></div>
+        </li>
+      </ul>
+    </div>
 
-<!-- TAB 5: KIDS -->
-<section class="tab-section" id="tab-kids">
-<div class="section-header">
-<div class="eyebrow">Family Fun</div>
-<h2>亲子乐园</h2>
-<p class="subtitle">Fun for the Little Ones</p>
-</div>
-<div class="section-wave"></div>
-<div class="card-list">
-<div class="card reveal">
-<div class="card-glow"></div>
-<div class="child-badge">👶 亲子推荐</div>
-<h3>🏊 酒店亲子水上乐园</h3>
-<p>国惠国际酒店自带的亲子水上乐园，滑梯、戏水池、喷泉等设施齐全。不用出酒店就能玩水，台风天的完美备选方案！</p>
-<div class="meta">
-<span class="meta-tag highlight">📍 酒店内</span>
-<span class="meta-tag">👶 全年龄</span>
-<span class="meta-tag">🌧️ 雨天可玩</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<div class="child-badge">👶 亲子推荐</div>
-<h3>🎠 酒店儿童乐园</h3>
-<p>室内游乐区，配备各种儿童游乐设施。刮风下雨也不怕，小朋友可以尽情玩耍，大人也可以稍作休息。</p>
-<div class="meta">
-<span class="meta-tag highlight">📍 酒店内</span>
-<span class="meta-tag">👶 全年龄</span>
-<span class="meta-tag">🏠 室内</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<div class="child-badge">👶 亲子推荐</div>
-<h3>🏖️ 坛南湾沙滩戏水</h3>
-<p>细软白沙滩上挖沙堡、踏浪花、捡贝壳——孩子们的天然游乐场。浅水区安全性好，但记得做好防晒！</p>
-<div class="meta">
-<span class="meta-tag highlight">📍 坛南湾</span>
-<span class="meta-tag">👶 3岁+</span>
-<span class="meta-tag">☀️ 注意防晒</span>
-</div>
-</div>
-<div class="card reveal shell-deco">
-<div class="card-glow"></div>
-<div class="child-badge">👶 亲子推荐</div>
-<h3>🦀 赶海拾贝</h3>
-<p>退潮时分，带着小桶到礁石区，寻找小螃蟹、贝壳、海螺、海星。这是孩子与大海最亲密的互动，也是最棒的自然课堂。</p>
-<div class="meta">
-<span class="meta-tag highlight">🌊 退潮时段</span>
-<span class="meta-tag">👶 3岁+</span>
-<span class="meta-tag">👟 穿防滑鞋</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<div class="child-badge">👶 亲子推荐</div>
-<h3>🚴 环岛路亲子骑行</h3>
-<p>沿着平潭环岛路骑行，海风拂面，沿途海景如画。可以租亲子双人车或带儿童座椅的自行车，一起享受海边骑行的乐趣。</p>
-<div class="meta">
-<span class="meta-tag highlight">📍 环岛路</span>
-<span class="meta-tag">👶 4岁+</span>
-<span class="meta-tag">⏰ 傍晚最佳</span>
-</div>
-</div>
-<div class="card reveal">
-<div class="card-glow"></div>
-<div class="child-badge">👶 亲子推荐</div>
-<h3>✨ 夜观蓝眼泪</h3>
-<p>带着孩子一起见证大自然的魔法——海水中发出梦幻蓝光！这是最好的亲子科普体验，让孩子了解生物发光现象（bioluminescence）。</p>
-<div class="meta">
-<span class="meta-tag highlight">🌙 夜间活动</span>
-<span class="meta-tag">👶 全年龄</span>
-<span class="meta-tag">🔬 科普教育</span>
-</div>
-</div>
-</div>
-</section>
+    <!-- Day 2 -->
+    <div class="day-card day-2 fade-in">
+      <div class="day-header">
+        <span class="day-number font-display">02</span>
+        <div class="day-info">
+          <div class="day-label">探索日</div>
+          <div class="day-date">8/10 周一</div>
+        </div>
+        <span class="day-tag">📸 精华</span>
+      </div>
+      <ul class="day-items">
+        <li>
+          <span class="item-icon">📸</span>
+          <div class="item-text">上午：北港村石头厝<span class="item-note">百年石头房子，文艺打卡圣地</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🍜</span>
+          <div class="item-text">中午：平潭特色美食<span class="item-note">海蛎煎、时来运转，不能错过</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🌬</span>
+          <div class="item-text">下午：长江澳风车田<span class="item-note">海天之间的风车奇观，日落绝美</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🏖</span>
+          <div class="item-text">傍晚：坛南湾沙滩<span class="item-note">平潭最美白沙滩，踏浪戏水</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🔵</span>
+          <div class="item-text">晚上：蓝眼泪<span class="item-note">需看天气潮汐，天黑后退潮时最佳</span></div>
+        </li>
+      </ul>
+    </div>
 
-<!-- TAB 6: WEATHER -->
-<section class="tab-section" id="tab-weather">
-<div class="section-header">
-<div class="eyebrow">Weather &amp; Safety</div>
-<h2>天气 · 台风</h2>
-<p class="subtitle">Stay Safe, Stay Informed</p>
-</div>
-<div class="section-wave"></div>
+    <!-- Day 3 -->
+    <div class="day-card day-3 fade-in">
+      <div class="day-header">
+        <span class="day-number font-display">03</span>
+        <div class="day-info">
+          <div class="day-label">深度日</div>
+          <div class="day-date">8/11 周二</div>
+        </div>
+        <span class="day-tag">🎢 慢享</span>
+      </div>
+      <ul class="day-items">
+        <li>
+          <span class="item-icon">🏛</span>
+          <div class="item-text">上午：海坛古城 / 仙人井<span class="item-note">闽式建筑群 + 天然海蚀洞奇观</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🍜</span>
+          <div class="item-text">中午：美食探店<span class="item-note">八珍炒糕、紫菜焖饭，继续吃</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🎢</span>
+          <div class="item-text">下午：酒店亲子乐园<span class="item-note">水上乐园 + 儿童游乐区，小朋友天堂</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🚴</span>
+          <div class="item-text">傍晚：环岛路兜风<span class="item-note">沿海公路，吹着海风慢慢开</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🔵</span>
+          <div class="item-text">晚上：二刷蓝眼泪<span class="item-note">换个沙滩碰碰运气</span></div>
+        </li>
+      </ul>
+    </div>
 
-<div class="weather-alert reveal">
-<div class="alert-header">
-<span class="alert-icon">🌀</span>
-<span class="alert-title">台风"海豚"</span>
-<span class="alert-level">蓝色预警</span>
-</div>
-<p>台风"海豚"正影响福建沿海地区。平潭作为离岸海岛，受外围环流影响较大。行程期间请密切关注台风路径变化，沿海景点可能临时关闭，海上活动需格外注意安全。蓝眼泪观赏受台风影响可能受限，建议降低预期。</p>
+    <!-- Day 4 -->
+    <div class="day-card day-4 fade-in">
+      <div class="day-header">
+        <span class="day-number font-display">04</span>
+        <div class="day-info">
+          <div class="day-label">返程日</div>
+          <div class="day-date">8/12 周三</div>
+        </div>
+        <span class="day-tag">🏠 归途</span>
+      </div>
+      <ul class="day-items">
+        <li>
+          <span class="item-icon">🍳</span>
+          <div class="item-text">上午：酒店早餐<span class="item-note">最后享受一顿海景早餐</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🏨</span>
+          <div class="item-text">中午前退房<span class="item-note">整理行李，和大海说再见</span></div>
+        </li>
+        <li>
+          <span class="item-icon">🚗</span>
+          <div class="item-text">自驾返回晋江<span class="item-note">带着满满的回忆回家～</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div class="weather-grid">
-<div class="weather-card reveal">
-<div class="w-date">8月9日</div>
-<div class="w-day">周日 · Day 1</div>
-<div class="w-icon">🌥️</div>
-<div class="w-temp">29°C</div>
-<div class="w-desc">阴，零星小雨</div>
-<div class="w-wind">西南风3级 · 体感32°C</div>
-</div>
-<div class="weather-card reveal reveal-delay-1">
-<div class="w-date">8月10日</div>
-<div class="w-day">周一 · Day 2</div>
-<div class="w-icon">⛅</div>
-<div class="w-temp">30°C</div>
-<div class="w-desc">多云转阵雨</div>
-<div class="w-wind">受台风外围影响</div>
-</div>
-<div class="weather-card reveal reveal-delay-2">
-<div class="w-date">8月11日</div>
-<div class="w-day">周二 · Day 3</div>
-<div class="w-icon">🌧️</div>
-<div class="w-temp">28°C</div>
-<div class="w-desc">阵雨</div>
-<div class="w-wind">风力可能增大</div>
-</div>
-<div class="weather-card reveal reveal-delay-3">
-<div class="w-date">8月12日</div>
-<div class="w-day">周三 · Day 4</div>
-<div class="w-icon">⛅</div>
-<div class="w-temp">29°C</div>
-<div class="w-desc">多云</div>
-<div class="w-wind">台风远离减弱</div>
-</div>
+<!-- 🍜 美食 / Food -->
+<div class="panel" id="panel-food">
+  <div class="section-banner">
+    <img src="images/oyster-omelette.jpg" alt="平潭美食"
+         onerror="this.parentElement.classList.add('img-fallback-gold');this.remove();">
+    <div class="banner-overlay">
+      <span class="banner-title-en font-display">Island Flavors</span>
+      <span class="banner-title-cn font-display">平潭味道</span>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="food-grid">
+
+      <!-- 1. 海蛎煎 -->
+      <div class="food-card recommended fade-in">
+        <div class="food-img-wrap">
+          <img src="images/oyster-omelette.jpg" alt="海蛎煎" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-gold" style="display:none;">🦪</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🦪 海蛎煎</div>
+          <div class="food-name-en">Oyster Omelette</div>
+          <div class="food-desc">外酥里嫩，平潭人的灵魂小吃</div>
+          <div class="food-meta">
+            <span>📍 平潭大排档</span>
+            <span class="food-price">¥15-25</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 时来运转 -->
+      <div class="food-card recommended fade-in">
+        <div class="food-img-wrap">
+          <img src="images/shilai-yunzhuan.jpg" alt="时来运转" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-coral" style="display:none;">🥟</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🥟 时来运转</div>
+          <div class="food-name-en">Shílái Yùnzhuǎn</div>
+          <div class="food-desc">地瓜粉皮包海鲜馅，一口好运</div>
+          <div class="food-meta">
+            <span>📍 老城区小吃店</span>
+            <span class="food-price">¥10-20</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 八珍炒糕 -->
+      <div class="food-card fade-in">
+        <div class="food-img-wrap">
+          <div class="food-emoji-fallback img-fallback-coral">🍳</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🍳 八珍炒糕</div>
+          <div class="food-name-en">Eight-Treasure Cake</div>
+          <div class="food-desc">海鲜炒年糕，鲜到眉毛掉</div>
+          <div class="food-meta">
+            <span>📍 龙凤头美食街</span>
+            <span class="food-price">¥25-40</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 天长地久 -->
+      <div class="food-card fade-in">
+        <div class="food-img-wrap">
+          <div class="food-emoji-fallback img-fallback-gold">🍡</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🍡 天长地久</div>
+          <div class="food-name-en">Tiāncháng Dìjiǔ</div>
+          <div class="food-desc">花生馅甜点，名字就是祝福</div>
+          <div class="food-meta">
+            <span>📍 传统糕点铺</span>
+            <span class="food-price">¥8-15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 光饼 -->
+      <div class="food-card fade-in">
+        <div class="food-img-wrap">
+          <div class="food-emoji-fallback img-fallback-gold">🫓</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🫓 光饼</div>
+          <div class="food-name-en">Guāng Bǐng</div>
+          <div class="food-desc">福建传统面饼，外焦里软</div>
+          <div class="food-meta">
+            <span>📍 街边烤饼摊</span>
+            <span class="food-price">¥3-5</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 紫菜焖饭 -->
+      <div class="food-card fade-in">
+        <div class="food-img-wrap">
+          <div class="food-emoji-fallback img-fallback-green">🍚</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🍚 紫菜焖饭</div>
+          <div class="food-name-en">Seaweed Rice</div>
+          <div class="food-desc">紫菜鲜味渗透每粒米</div>
+          <div class="food-meta">
+            <span>📍 海边餐厅</span>
+            <span class="food-price">¥20-35</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. 鱼丸鱼面 -->
+      <div class="food-card fade-in">
+        <div class="food-img-wrap">
+          <div class="food-emoji-fallback img-fallback-blue">🐟</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🐟 鱼丸鱼面</div>
+          <div class="food-name-en">Fish Balls & Noodles</div>
+          <div class="food-desc">手打鱼丸弹牙鲜甜</div>
+          <div class="food-meta">
+            <span>📍 老街鱼丸店</span>
+            <span class="food-price">¥15-25</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. 海鲜大排档 -->
+      <div class="food-card recommended fade-in">
+        <div class="food-img-wrap">
+          <img src="images/seafood.jpg" alt="海鲜大排档" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-blue" style="display:none;">🦀</div>
+        </div>
+        <div class="food-info">
+          <div class="food-name-cn">🦀 海鲜大排档</div>
+          <div class="food-name-en">Seafood Feast</div>
+          <div class="food-desc">石斑鱼、螃蟹、虾，来平潭必吃</div>
+          <div class="food-meta">
+            <span>📍 龙凤头海鲜排档</span>
+            <span class="food-price">¥人均80-150</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<div class="section-header" style="padding-top:10px">
-<div class="eyebrow">Safety Tips</div>
-<h2>安全注意事项</h2>
-</div>
-<div class="safety-list">
-<div class="safety-item reveal"><div class="safety-num">1</div><p>实时关注台风路径，推荐下载"台风路径"App，掌握最新动态</p></div>
-<div class="safety-item reveal"><div class="safety-num">2</div><p>沿海景点（仙人井、坛南湾等）台风期间可能临时关闭，出发前务必确认开放情况</p></div>
-<div class="safety-item reveal"><div class="safety-num">3</div><p>蓝眼泪观赏受台风影响概率大，建议降低期望，看到就是惊喜</p></div>
-<div class="safety-item reveal"><div class="safety-num">4</div><p>随身携带雨具，穿防滑鞋，海边礁石湿滑注意安全</p></div>
-<div class="safety-item reveal"><div class="safety-num">5</div><p>自驾注意：海峡大桥台风时可能限行或封桥，出发前查询路况信息</p></div>
-<div class="safety-item reveal"><div class="safety-num">6</div><p>酒店配备充电桩，电车可充电，提前预约充电位</p></div>
-<div class="safety-item reveal"><div class="safety-num">7</div><p>紧急电话：急救 120 / 报警 110 / 平潭旅游投诉 0591-86160266</p></div>
-</div>
-</section>
+<!-- 📸 美景 / Scenic -->
+<div class="panel" id="panel-scenic">
+  <div class="section-banner">
+    <img src="images/blue-tears.jpg" alt="蓝眼泪"
+         onerror="this.parentElement.classList.add('img-fallback-dark');this.remove();">
+    <div class="banner-overlay">
+      <span class="banner-title-en font-display">Scenic Wonders</span>
+      <span class="banner-title-cn font-display">绝美打卡</span>
+    </div>
+  </div>
 
-<!-- Bottom Nav -->
-<nav class="bottom-nav">
-<div class="nav-inner">
-<button class="nav-btn active" onclick="switchTab('home')" data-tab="home">
-<span class="nav-icon">🏠</span><span>首页</span>
-</button>
-<button class="nav-btn" onclick="switchTab('itinerary')" data-tab="itinerary">
-<span class="nav-icon">🗓</span><span>行程</span>
-</button>
-<button class="nav-btn" onclick="switchTab('food')" data-tab="food">
-<span class="nav-icon">🍜</span><span>美食</span>
-</button>
-<button class="nav-btn" onclick="switchTab('spots')" data-tab="spots">
-<span class="nav-icon">📸</span><span>打卡</span>
-</button>
-<button class="nav-btn" onclick="switchTab('kids')" data-tab="kids">
-<span class="nav-icon">👶</span><span>亲子</span>
-</button>
-<button class="nav-btn" onclick="switchTab('weather')" data-tab="weather">
-<span class="nav-icon">🌀</span><span>天气</span>
-</button>
+  <div class="content-wrap">
+
+    <!-- 1. 蓝眼泪 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap">
+        <img src="images/blue-tears.jpg" alt="蓝眼泪" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-dark');this.remove();">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name">
+          <h3>蓝眼泪<span class="star">⭐</span></h3>
+          <div class="scenic-oneliner">大自然的荧光海，此生必看</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 坛南湾 / 龙凤头 / 北港村</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：天黑后退潮时，4-8月</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：关灯手机调暗，耐心等待，裸眼即可见</div>
+        <div class="scenic-warn">⚠️ 台风期间海浪增大，注意安全，远离礁石</div>
+      </div>
+    </div>
+
+    <!-- 2. 长江澳风车田 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap">
+        <img src="images/windmill.jpg" alt="风车田" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-blue');this.remove();">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name">
+          <h3>长江澳风车田</h3>
+          <div class="scenic-oneliner">海天之间的风车奇观</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 长江澳</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：日落前1小时</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：逆光剪影最出片，风大注意安全</div>
+      </div>
+    </div>
+
+    <!-- 3. 北港村石头厝 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap">
+        <img src="images/stone-houses.jpg" alt="石头厝" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-gold');this.remove();">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name">
+          <h3>北港村石头厝</h3>
+          <div class="scenic-oneliner">百年石头房子的文艺时光</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 北港村</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：午后暖光</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：巷子里随手拍都好看，找找墙上的涂鸦</div>
+      </div>
+    </div>
+
+    <!-- 4. 坛南湾 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap">
+        <img src="images/tannan-bay.jpg" alt="坛南湾" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-blue');this.remove();">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name">
+          <h3>坛南湾</h3>
+          <div class="scenic-oneliner">平潭最美白沙滩</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 坛南湾景区</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：上午/傍晚</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：光脚踩沙+蓝天构图，带防晒！</div>
+      </div>
+    </div>
+
+    <!-- 5. 海坛古城 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap img-fallback-coral">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name" style="padding:16px;">
+          <h3>海坛古城</h3>
+          <div class="scenic-oneliner">闽式建筑群的历史穿越</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 海坛古城景区</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：上午避暑时段</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：古风拍照，体验闽南文化</div>
+      </div>
+    </div>
+
+    <!-- 6. 仙人井 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap img-fallback-dark">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name" style="padding:16px;">
+          <h3>仙人井</h3>
+          <div class="scenic-oneliner">惊涛拍岸的天然海蚀洞</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 仙人井景区</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：潮水上涨时最壮观</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：听海浪灌入洞穴的轰鸣</div>
+        <div class="scenic-warn">⚠️ 台风天禁止入内，注意围栏警示</div>
+      </div>
+    </div>
+
+    <!-- 7. 海峡大桥 -->
+    <div class="scenic-card fade-in">
+      <div class="scenic-img-wrap">
+        <img src="images/bridge.jpg" alt="海峡大桥" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-blue');this.remove();">
+        <div class="scenic-overlay"></div>
+        <div class="scenic-name">
+          <h3>海峡大桥</h3>
+          <div class="scenic-oneliner">跨海长虹，自驾必经的震撼</div>
+        </div>
+      </div>
+      <div class="scenic-info">
+        <div class="scenic-detail"><span class="detail-icon">📍</span> 平潭海峡大桥</div>
+        <div class="scenic-detail"><span class="detail-icon">⏰</span> 最佳：晴天时驶过最震撼</div>
+        <div class="scenic-detail"><span class="detail-icon">💡</span> Tips：副驾拍短视频，记录穿越大海的瞬间</div>
+      </div>
+    </div>
+
+  </div>
 </div>
+
+<!-- 👶 亲子 / Family -->
+<div class="panel" id="panel-family">
+  <div class="section-banner">
+    <img src="images/family-beach.jpg" alt="亲子时光"
+         onerror="this.parentElement.classList.add('img-fallback-blue');this.remove();">
+    <div class="banner-overlay">
+      <span class="banner-title-en font-display">Family Fun</span>
+      <span class="banner-title-cn font-display">亲子时光</span>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <div class="family-card fade-in">
+      <div class="family-emoji">🏊</div>
+      <div class="family-content">
+        <div class="family-title">酒店水上乐园</div>
+        <div class="family-where">📍 国惠国际酒店</div>
+        <div class="family-desc">酒店自带水上乐园，大人小孩都能玩，全年龄友好</div>
+        <div class="family-tip">💧 记得带泳衣和防晒霜</div>
+      </div>
+    </div>
+
+    <div class="family-card fade-in">
+      <div class="family-emoji">🎠</div>
+      <div class="family-content">
+        <div class="family-title">酒店儿童乐园</div>
+        <div class="family-where">📍 国惠国际酒店</div>
+        <div class="family-desc">室内游乐区，适合小朋友，雨天完美备选方案</div>
+        <div class="family-tip">🌧 雨天首选</div>
+      </div>
+    </div>
+
+    <div class="family-card fade-in">
+      <div class="family-emoji">🏖</div>
+      <div class="family-content">
+        <div class="family-title">沙滩戏水</div>
+        <div class="family-where">📍 坛南湾</div>
+        <div class="family-desc">挖沙踏浪，小朋友最爱的海滩时光</div>
+        <div class="family-tip">☀️ 注意防晒，小心水母</div>
+      </div>
+    </div>
+
+    <div class="family-card fade-in">
+      <div class="family-emoji">🐚</div>
+      <div class="family-content">
+        <div class="family-title">赶海拾贝</div>
+        <div class="family-where">📍 退潮时礁石区</div>
+        <div class="family-desc">捡贝壳、找小螃蟹，亲子自然探索</div>
+        <div class="family-tip">👟 穿防滑鞋，注意礁石</div>
+      </div>
+    </div>
+
+    <div class="family-card fade-in">
+      <div class="family-emoji">🚲</div>
+      <div class="family-content">
+        <div class="family-title">环岛亲子骑行</div>
+        <div class="family-where">📍 环岛路</div>
+        <div class="family-desc">沿海风景公路，边骑边看海</div>
+        <div class="family-tip">🚸 注意交通安全，选平坦路段</div>
+      </div>
+    </div>
+
+    <div class="family-card fade-in">
+      <div class="family-emoji">🌌</div>
+      <div class="family-content">
+        <div class="family-title">夜观蓝眼泪</div>
+        <div class="family-where">📍 坛南湾</div>
+        <div class="family-desc">带孩子看大自然的荧光海，最好的科普体验</div>
+        <div class="family-tip">🔦 带手电+驱蚊液</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ⛅ 天气 / Weather -->
+<div class="panel" id="panel-weather">
+  <div class="section-banner img-fallback-dark">
+    <div class="banner-overlay">
+      <span class="banner-title-en font-display">Weather & Safety</span>
+      <span class="banner-title-cn font-display">天气 · 安全</span>
+    </div>
+  </div>
+
+  <div class="weather-section">
+
+    <!-- Typhoon card -->
+    <div class="typhoon-card fade-in">
+      <div class="typhoon-header">
+        <span class="typhoon-icon">🌀</span>
+        <div>
+          <div class="typhoon-title">台风「海豚」</div>
+          <span class="typhoon-level">蓝色预警</span>
+        </div>
+      </div>
+      <div class="typhoon-body">
+        <p>台风「海豚」正在西太平洋移动，预计对福建沿海有一定影响：</p>
+        <ul>
+          <li>8/10-8/11 风力增大，阵风可达 6-7 级</li>
+          <li>海上浪高增大，部分沙滩可能临时关闭</li>
+          <li>蓝眼泪出现概率降低，但台风前后反而可能爆发</li>
+          <li>8/12 起逐渐减弱，影响消退</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Weather grid -->
+    <div class="weather-grid">
+      <div class="weather-card fade-in">
+        <div class="weather-day">DAY 1</div>
+        <div class="weather-date">8/9 周日</div>
+        <div class="weather-icon-big">🌧</div>
+        <div class="weather-temp">29°</div>
+        <div class="weather-desc">阴·零星小雨</div>
+        <div class="weather-wind">东南风 3-4级</div>
+      </div>
+      <div class="weather-card fade-in">
+        <div class="weather-day">DAY 2</div>
+        <div class="weather-date">8/10 周一</div>
+        <div class="weather-icon-big">⛅</div>
+        <div class="weather-temp">30°</div>
+        <div class="weather-desc">多云转阵雨</div>
+        <div class="weather-wind">东风 4-5级</div>
+      </div>
+      <div class="weather-card fade-in">
+        <div class="weather-day">DAY 3</div>
+        <div class="weather-date">8/11 周二</div>
+        <div class="weather-icon-big">🌧</div>
+        <div class="weather-temp">28°</div>
+        <div class="weather-desc">阵雨·风力增大</div>
+        <div class="weather-wind">东北风 5-6级</div>
+      </div>
+      <div class="weather-card fade-in">
+        <div class="weather-day">DAY 4</div>
+        <div class="weather-date">8/12 周三</div>
+        <div class="weather-icon-big">⛅</div>
+        <div class="weather-temp">29°</div>
+        <div class="weather-desc">多云·台风减弱</div>
+        <div class="weather-wind">东风 3-4级</div>
+      </div>
+    </div>
+
+    <!-- Safety tips -->
+    <div class="safety-tips fade-in">
+      <div class="safety-title">🛡 安全贴士</div>
+      <ul class="safety-list">
+        <li><span class="s-icon">🌊</span> 台风期间远离海边礁石，不要在浪大时下水游泳</li>
+        <li><span class="s-icon">☀️</span> 海边紫外线强烈，务必涂防晒、戴帽子</li>
+        <li><span class="s-icon">🚗</span> 海峡大桥遇大风可能限速或封桥，提前关注交通信息</li>
+        <li><span class="s-icon">🦑</span> 海蜇/水母季节，下水前观察水面，被蜇后用醋处理</li>
+        <li><span class="s-icon">📱</span> 保存平潭救援电话：110 / 120 / 海上救助 12395</li>
+        <li><span class="s-icon">💧</span> 多喝水防中暑，随身携带驱蚊液</li>
+        <li><span class="s-icon">👶</span> 亲子出行：小朋友在海边务必有大人看护</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== TAB BAR ==================== -->
+<nav class="tab-bar">
+  <button class="tab-btn active" data-panel="route" onclick="switchTab('route')">
+    <span class="tab-icon">🗺</span>
+    <span>攻略</span>
+  </button>
+  <button class="tab-btn" data-panel="food" onclick="switchTab('food')">
+    <span class="tab-icon">🍜</span>
+    <span>美食</span>
+  </button>
+  <button class="tab-btn" data-panel="scenic" onclick="switchTab('scenic')">
+    <span class="tab-icon">📸</span>
+    <span>美景</span>
+  </button>
+  <button class="tab-btn" data-panel="family" onclick="switchTab('family')">
+    <span class="tab-icon">👶</span>
+    <span>亲子</span>
+  </button>
+  <button class="tab-btn" data-panel="weather" onclick="switchTab('weather')">
+    <span class="tab-icon">⛅</span>
+    <span>天气</span>
+  </button>
 </nav>
 
+<!-- ==================== SCRIPTS ==================== -->
 <script>
-/* === Tab switching === */
-function switchTab(tab){
-document.querySelectorAll('.tab-section').forEach(function(s){s.classList.remove('active')});
-document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active')});
-document.getElementById('tab-'+tab).classList.add('active');
-document.querySelector('[data-tab="'+tab+'"]').classList.add('active');
-window.scrollTo({top:0,behavior:'smooth'});
-setTimeout(function(){
-document.querySelectorAll('#tab-'+tab+' .reveal').forEach(function(el){
-el.classList.remove('visible');
-void el.offsetWidth;
-observer.observe(el);
+// Tab switching
+function switchTab(panelId) {
+  // Hide all panels
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  // Deactivate all tabs
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  // Show target panel
+  const panel = document.getElementById('panel-' + panelId);
+  if (panel) {
+    panel.classList.add('active');
+    // Re-trigger fade-in for visible elements
+    setTimeout(() => {
+      panel.querySelectorAll('.fade-in').forEach(el => {
+        observerInstance.observe(el);
+      });
+    }, 50);
+  }
+  // Activate tab
+  const btn = document.querySelector('[data-panel="' + panelId + '"]');
+  if (btn) btn.classList.add('active');
+  // Scroll to top of panel
+  window.scrollTo({ top: document.getElementById('hero').offsetHeight, behavior: 'smooth' });
+}
+
+// Intersection Observer for fade-in
+const observerInstance = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
 });
-},100);
-}
 
-/* === Timeline toggle === */
-function toggleDay(card){
-var detail=card.querySelector('.timeline-detail');
-var hint=card.querySelector('.timeline-expand-hint');
-var isOpen=detail.classList.contains('open');
-document.querySelectorAll('.timeline-detail').forEach(function(d){d.classList.remove('open')});
-document.querySelectorAll('.timeline-expand-hint').forEach(function(h){h.textContent='点击展开 ↓'});
-if(!isOpen){
-detail.classList.add('open');
-if(hint) hint.textContent='点击收起 ↑';
-}
-}
-
-/* === Multi-layer Stars === */
-(function(){
-var c=document.getElementById('stars');
-if(!c) return;
-var starConfigs=[
-{count:40,cls:'star--sm',animName:'twinkleSlow',maxTop:50},
-{count:35,cls:'star--md',animName:'twinkle',maxTop:45},
-{count:18,cls:'star--lg',animName:'twinkleFast',maxTop:40},
-{count:6,cls:'star--xl',animName:'twinkle',maxTop:35}
-];
-starConfigs.forEach(function(cfg){
-for(var i=0;i<cfg.count;i++){
-var s=document.createElement('div');
-s.className='star '+cfg.cls;
-s.style.left=Math.random()*100+'%';
-s.style.top=Math.random()*cfg.maxTop+'%';
-s.style.animationName=cfg.animName;
-s.style.animationDelay=Math.random()*5+'s';
-s.style.animationDuration=(2+Math.random()*4)+'s';
-s.style.animationTimingFunction='ease-in-out';
-s.style.animationIterationCount='infinite';
-c.appendChild(s);
-}
+// Observe all fade-in elements
+document.querySelectorAll('.fade-in').forEach(el => {
+  observerInstance.observe(el);
 });
-})();
 
-/* === Windmills === */
-(function(){
-var scene=document.getElementById('windmillScene');
-if(!scene) return;
-var mills=[
-{left:'10%',towerH:55,bladeL:26,speed:8},
-{left:'20%',towerH:48,bladeL:23,speed:10},
-{left:'46%',towerH:52,bladeL:25,speed:9},
-{left:'74%',towerH:60,bladeL:29,speed:7},
-{left:'86%',towerH:44,bladeL:21,speed:12}
-];
-mills.forEach(function(m,idx){
-var w=document.createElement('div');
-w.className='windmill';
-w.style.left=m.left;
-// Tower
-var tower=document.createElement('div');
-tower.className='windmill-tower';
-tower.style.height=m.towerH+'px';
-w.appendChild(tower);
-// Hub
-var hub=document.createElement('div');
-hub.className='windmill-hub';
-hub.style.top='0px';
-w.appendChild(hub);
-// Blades container
-var blades=document.createElement('div');
-blades.className='windmill-blades';
-blades.style.top=(-m.bladeL)+'px';
-blades.style.width=(m.bladeL*2)+'px';
-blades.style.height=(m.bladeL*2)+'px';
-blades.style.animationName='rotateBlade';
-blades.style.animationDuration=m.speed+'s';
-blades.style.animationTimingFunction='linear';
-blades.style.animationIterationCount='infinite';
-blades.style.animationDirection=idx%2===0?'normal':'reverse';
-// 3 blades at 120deg apart
-for(var b=0;b<3;b++){
-var blade=document.createElement('div');
-blade.className='windmill-blade';
-blade.style.height=m.bladeL+'px';
-blade.style.transformOrigin='bottom center';
-blade.style.transform='rotate('+(b*120)+'deg)';
-blade.style.position='absolute';
-blade.style.left='50%';
-blade.style.marginLeft='-1px';
-blade.style.bottom='50%';
-blades.appendChild(blade);
-}
-w.appendChild(blades);
-scene.appendChild(w);
+// Hero scroll indicator — hide on scroll
+let heroScrolled = false;
+window.addEventListener('scroll', () => {
+  if (!heroScrolled && window.scrollY > 100) {
+    heroScrolled = true;
+    const sd = document.querySelector('.scroll-down');
+    if (sd) sd.style.opacity = '0';
+  }
 });
-})();
 
-/* === Blue Tears Particles === */
-(function(){
-var container=document.getElementById('blueTears');
-if(!container) return;
-for(var i=0;i<25;i++){
-var tear=document.createElement('div');
-tear.className='tear';
-tear.style.left=Math.random()*100+'%';
-tear.style.bottom=Math.random()*40+'px';
-tear.style.animationName='tearGlow';
-tear.style.animationDuration=(3+Math.random()*4)+'s';
-tear.style.animationDelay=Math.random()*6+'s';
-tear.style.animationTimingFunction='ease-in-out';
-tear.style.animationIterationCount='infinite';
-var size=2+Math.random()*2;
-tear.style.width=size+'px';
-tear.style.height=size+'px';
-container.appendChild(tear);
+// Click hero scroll down
+const scrollDown = document.querySelector('.scroll-down');
+if (scrollDown) {
+  scrollDown.addEventListener('click', () => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  });
 }
-})();
-
-/* === Intersection Observer for reveal === */
-var observer=new IntersectionObserver(function(entries){
-entries.forEach(function(entry){
-if(entry.isIntersecting){
-entry.target.classList.add('visible');
-observer.unobserve(entry.target);
-}
-});
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
 </script>
 </body>
 </html>
