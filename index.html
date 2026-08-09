@@ -977,7 +977,9 @@ body {
       <!-- 3. 八珍炒糕 -->
       <div class="food-card fade-in">
         <div class="food-img-wrap">
-          <div class="food-emoji-fallback img-fallback-coral">🍳</div>
+          <img src="images/bazhen-chaogao.jpg" alt="八珍炒糕" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-coral" style="display:none;">🍳</div>
         </div>
         <div class="food-info">
           <div class="food-name-cn">🍳 八珍炒糕</div>
@@ -993,7 +995,9 @@ body {
       <!-- 4. 天长地久 -->
       <div class="food-card fade-in">
         <div class="food-img-wrap">
-          <div class="food-emoji-fallback img-fallback-gold">🍡</div>
+          <img src="images/tianchangdijiu.jpg" alt="天长地久" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-gold" style="display:none;">🍡</div>
         </div>
         <div class="food-info">
           <div class="food-name-cn">🍡 天长地久</div>
@@ -1009,7 +1013,9 @@ body {
       <!-- 5. 光饼 -->
       <div class="food-card fade-in">
         <div class="food-img-wrap">
-          <div class="food-emoji-fallback img-fallback-gold">🫓</div>
+          <img src="images/guangbing.jpg" alt="光饼" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-gold" style="display:none;">🫓</div>
         </div>
         <div class="food-info">
           <div class="food-name-cn">🫓 光饼</div>
@@ -1025,7 +1031,9 @@ body {
       <!-- 6. 紫菜焖饭 -->
       <div class="food-card fade-in">
         <div class="food-img-wrap">
-          <div class="food-emoji-fallback img-fallback-green">🍚</div>
+          <img src="images/zicai-rice.jpg" alt="紫菜焖饭" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-green" style="display:none;">🍚</div>
         </div>
         <div class="food-info">
           <div class="food-name-cn">🍚 紫菜焖饭</div>
@@ -1041,7 +1049,9 @@ body {
       <!-- 7. 鱼丸鱼面 -->
       <div class="food-card fade-in">
         <div class="food-img-wrap">
-          <div class="food-emoji-fallback img-fallback-blue">🐟</div>
+          <img src="images/fishball.jpg" alt="鱼丸鱼面" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="food-emoji-fallback img-fallback-blue" style="display:none;">🐟</div>
         </div>
         <div class="food-info">
           <div class="food-name-cn">🐟 鱼丸鱼面</div>
@@ -1164,9 +1174,11 @@ body {
 
     <!-- 5. 海坛古城 -->
     <div class="scenic-card fade-in">
-      <div class="scenic-img-wrap img-fallback-coral">
+      <div class="scenic-img-wrap">
+        <img src="images/haitan-castle.jpg" alt="海坛古城" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-coral');this.remove();">
         <div class="scenic-overlay"></div>
-        <div class="scenic-name" style="padding:16px;">
+        <div class="scenic-name">
           <h3>海坛古城</h3>
           <div class="scenic-oneliner">闽式建筑群的历史穿越</div>
         </div>
@@ -1180,9 +1192,11 @@ body {
 
     <!-- 6. 仙人井 -->
     <div class="scenic-card fade-in">
-      <div class="scenic-img-wrap img-fallback-dark">
+      <div class="scenic-img-wrap">
+        <img src="images/xianren-well.jpg" alt="仙人井" loading="lazy"
+             onerror="this.parentElement.classList.add('img-fallback-dark');this.remove();">
         <div class="scenic-overlay"></div>
-        <div class="scenic-name" style="padding:16px;">
+        <div class="scenic-name">
           <h3>仙人井</h3>
           <div class="scenic-oneliner">惊涛拍岸的天然海蚀洞</div>
         </div>
