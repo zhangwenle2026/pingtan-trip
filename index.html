@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>平潭·海岛秘境 | Pingtan Island Escape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--deep-blue:#0A1628;--ocean-blue:#0F2744;--card-bg:#111D30;--card-border:#1A2A44;
+--wave-white:#F0F4F8;--text-secondary:#8BA3C1;--coral:#E8A87C;--coral-glow:#F4C19E;
+--gold:#FFD700;--danger:#FF6B6B;--success:#4ECB71;--info:#5B9FE8;
+--nav-h:64px;--safe-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+font-family:'Inter',system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+background:var(--deep-blue);color:var(--wave-white);line-height:1.6;
+overflow-x:hidden;padding-bottom:calc(var(--nav-h) + var(--safe-bottom) + 8px);
+-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Playfair Display','Georgia',serif}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--card-border);border-radius:4px}
+.tab-section{display:none;min-height:100vh;animation:fadeSection .4s ease}
+.tab-section.active{display:block}
+@keyframes fadeSection{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.bottom-nav{
+position:fixed;bottom:0;left:0;right:0;z-index:1000;
+background:rgba(10,22,40,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+border-top:1px solid var(--card-border);padding-bottom:var(--safe-bottom);
+}
+.bottom-nav .nav-inner{display:flex;justify-content:space-around;align-items:center;max-width:600px;margin:0 auto;height:var(--nav-h)}
+.nav-btn{
+display:flex;flex-direction:column;align-items:center;gap:2px;
+background:none;border:none;color:var(--text-secondary);
+font-size:10px;font-family:'Inter',sans-serif;font-weight:500;
+cursor:pointer;transition:all .25s ease;padding:6px 4px;
+-webkit-tap-highlight-color:transparent;position:relative;
+}
+.nav-btn .nav-icon{font-size:22px;transition:transform .25s ease}
+.nav-btn.active{color:var(--coral)}
+.nav-btn.active .nav-icon{transform:scale(1.15)}
+.nav-btn.active::after{
+content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+width:20px;height:2px;background:var(--coral);border-radius:2px;
+}
+.hero{
+position:relative;height:100vh;min-height:600px;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+text-align:center;overflow:hidden;padding:0 24px;
+}
+.hero-bg{
+position:absolute;inset:0;z-index:0;
+background:
+radial-gradient(ellipse 120% 80% at 50% 20%,#0a2a4a 0%,transparent 60%),
+radial-gradient(ellipse 100% 60% at 30% 80%,#0c1e3a 0%,transparent 50%),
+radial-gradient(ellipse 80% 40% at 70% 90%,#112240 0%,transparent 40%),
+linear-gradient(180deg,#050d1a 0%,#0a1e38 30%,#0d2a4a 60%,#0a1628 100%);
+}
+.hero-bg::before{
+content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+background:linear-gradient(0deg,rgba(10,22,40,.95) 0%,transparent 100%);
+}
+.hero-bg::after{
+content:'';position:absolute;bottom:0;left:-50%;width:200%;height:120px;
+background:repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(232,168,124,.03) 40px,rgba(232,168,124,.03) 80px);
+animation:waveFlow 8s linear infinite;
+}
+@keyframes waveFlow{from{transform:translateX(0)}to{transform:translateX(80px)}}
+.stars{position:absolute;inset:0;z-index:1;overflow:hidden}
+.star{position:absolute;width:2px;height:2px;background:var(--wave-white);border-radius:50%;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.8}}
+.hero-content{position:relative;z-index:2}
+.hero-eyebrow{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--coral);margin-bottom:16px;font-weight:600}
+.hero h1{
+font-size:clamp(2.4rem,8vw,4rem);font-weight:700;line-height:1.1;margin-bottom:8px;
+background:linear-gradient(135deg,var(--wave-white) 0%,var(--coral-glow) 100%);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,3vw,1.3rem);color:var(--text-secondary);margin-bottom:32px;letter-spacing:1px}
+.hero-info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:340px;margin:0 auto}
+.hero-info-item{
+background:rgba(255,255,255,.05);border:1px solid var(--card-border);
+border-radius:12px;padding:14px 12px;text-align:center;backdrop-filter:blur(8px);
+}
+.hero-info-item .label{font-size:10px;color:var(--text-secondary);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.hero-info-item .value{font-size:14px;font-weight:600;color:var(--wave-white)}
+.typhoon-banner{
+position:fixed;top:0;left:0;right:0;z-index:999;
+background:linear-gradient(90deg,rgba(255,107,107,.15),rgba(255,107,107,.08));
+border-bottom:1px solid rgba(255,107,107,.3);padding:8px 16px;text-align:center;
+font-size:12px;color:var(--danger);font-weight:500;
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.typhoon-banner .pulse{display:inline-block;width:6px;height:6px;background:var(--danger);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.section-header{padding:40px 20px 20px;text-align:center}
+.section-header .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:8px;font-weight:600}
+.section-header h2{font-size:clamp(1.6rem,5vw,2.2rem);margin-bottom:6px}
+.section-header .subtitle{font-size:13px;color:var(--text-secondary);font-style:italic;font-family:'Playfair Display',serif}
+.card-list{padding:0 16px 24px;display:flex;flex-direction:column;gap:14px;max-width:540px;margin:0 auto}
+.card{
+background:var(--card-bg);border:1px solid var(--card-border);
+border-radius:16px;padding:20px;position:relative;overflow:hidden;
+transition:transform .3s ease,box-shadow .3s ease;
+}
+.card:active{transform:scale(.98)}
+.card-glow{position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(232,168,124,.06) 0%,transparent 70%);pointer-events:none}
+.card-badge{
+display:inline-flex;align-items:center;gap:4px;
+background:rgba(232,168,124,.12);color:var(--coral);
+font-size:10px;font-weight:600;letter-spacing:1px;
+padding:4px 10px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;
+}
+.card h3{font-size:17px;margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .en-name{font-size:12px;color:var(--text-secondary);font-style:italic;margin-bottom:10px;font-family:'Playfair Display',serif}
+.card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+.card .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.card .meta-tag{font-size:11px;background:rgba(255,255,255,.05);color:var(--text-secondary);padding:4px 10px;border-radius:8px;border:1px solid var(--card-border)}
+.card .meta-tag.highlight{background:rgba(232,168,124,.1);color:var(--coral);border-color:rgba(232,168,124,.2)}
+.yuxin-badge{
+display:inline-flex;align-items:center;gap:4px;
+background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(232,168,124,.12));
+color:var(--gold);font-size:11px;font-weight:600;
+padding:4px 10px;border-radius:20px;margin-bottom:10px;border:1px solid rgba(255,215,0,.2);
+}
+.timeline{padding:0 16px 24px;max-width:540px;margin:0 auto}
+.timeline-day{position:relative;padding-left:32px;margin-bottom:8px}
+.timeline-day::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--card-border)}
+.timeline-day:last-child::before{display:none}
+.timeline-dot{position:absolute;left:4px;top:18px;width:14px;height:14px;background:var(--coral);border-radius:50%;z-index:1;border:3px solid var(--deep-blue)}
+.timeline-card{
+background:var(--card-bg);border:1px solid var(--card-border);
+border-radius:14px;padding:18px;margin-bottom:12px;cursor:pointer;transition:all .3s ease;
+}
+.timeline-card:active{transform:scale(.98)}
+.timeline-card .day-label{font-size:10px;color:var(--coral);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.timeline-card .day-title{font-size:16px;font-weight:700;margin-bottom:4px;font-family:'Playfair Display',serif}
+.timeline-card .day-theme{font-size:12px;color:var(--text-secondary);font-style:italic;margin-bottom:10px}
+.timeline-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.timeline-detail.open{max-height:600px}
+.timeline-item{display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.04);font-size:13px;color:var(--text-secondary);line-height:1.6}
+.timeline-item .time-dot{flex-shrink:0;width:6px;height:6px;background:var(--coral);border-radius:50%;margin-top:8px;opacity:.6}
+.timeline-expand-hint{font-size:11px;color:var(--text-secondary);opacity:.5;text-align:right;margin-top:4px}
+.weather-alert{
+margin:0 16px 14px;max-width:508px;margin-left:auto;margin-right:auto;
+background:linear-gradient(135deg,rgba(255,107,107,.08),rgba(255,107,107,.03));
+border:1px solid rgba(255,107,107,.2);border-radius:14px;padding:18px;
+}
+.weather-alert .alert-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.weather-alert .alert-icon{font-size:24px}
+.weather-alert .alert-title{font-size:14px;font-weight:700;color:var(--danger)}
+.weather-alert .alert-level{font-size:10px;background:rgba(91,159,232,.2);color:var(--info);padding:2px 8px;border-radius:10px;font-weight:600}
+.weather-alert p{font-size:12px;color:var(--text-secondary);line-height:1.7}
+.weather-grid{padding:0 16px;max-width:540px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+.weather-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:16px;text-align:center}
+.weather-card .w-date{font-size:11px;color:var(--text-secondary);margin-bottom:2px}
+.weather-card .w-day{font-size:12px;font-weight:600;color:var(--coral);margin-bottom:8px}
+.weather-card .w-icon{font-size:32px;margin-bottom:6px}
+.weather-card .w-temp{font-size:24px;font-weight:700;margin-bottom:4px}
+.weather-card .w-desc{font-size:11px;color:var(--text-secondary)}
+.weather-card .w-wind{font-size:10px;color:var(--text-secondary);opacity:.7;margin-top:2px}
+.safety-list{padding:0 16px 24px;max-width:540px;margin:0 auto}
+.safety-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.safety-item:last-child{border-bottom:none}
+.safety-num{flex-shrink:0;width:24px;height:24px;background:rgba(232,168,124,.1);color:var(--coral);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.safety-item p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+@media(min-width:768px){
+.hero-info{grid-template-columns:repeat(4,1fr);max-width:560px}
+.weather-grid{grid-template-columns:repeat(4,1fr)}
+}
+.spot-star{position:absolute;top:16px;right:16px;font-size:10px;background:rgba(232,168,124,.15);color:var(--coral);padding:4px 10px;border-radius:10px;font-weight:600;letter-spacing:1px}
+.card .tip-box{margin-top:12px;padding:10px 12px;background:rgba(232,168,124,.06);border-left:2px solid var(--coral);border-radius:0 8px 8px 0;font-size:12px;color:var(--coral-glow);line-height:1.6}
+.card .warning-box{margin-top:10px;padding:10px 12px;background:rgba(255,107,107,.06);border-left:2px solid var(--danger);border-radius:0 8px 8px 0;font-size:12px;color:var(--danger);line-height:1.6;opacity:.85}
+.child-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(78,203,113,.1);color:var(--success);font-size:10px;font-weight:600;padding:4px 10px;border-radius:20px;margin-bottom:10px;border:1px solid rgba(78,203,113,.15)}
+</style>
+</head>
+<body>
+
+<div class="typhoon-banner" id="typhoonBanner">
+<span class="pulse"></span>
+🌀 台风蓝色预警：台风"海豚"影响福建沿海，注意安全
+</div>
+
+<!-- TAB 1: HOME -->
+<section class="tab-section active" id="tab-home">
+<div class="hero">
+<div class="hero-bg"></div>
+<div class="stars" id="stars"></div>
+<div class="hero-content">
+<div class="hero-eyebrow">2026 · 海岛秘境之旅</div>
+<h1>平潭·海岛秘境</h1>
+<p class="hero-sub">Pingtan Island Escape</p>
+<div class="hero-info">
+<div class="hero-info-item reveal"><div class="label">日期</div><div class="value">8.9 — 8.12</div></div>
+<div class="hero-info-item reveal reveal-delay-1"><div class="label">行程</div><div class="value">4天3晚</div></div>
+<div class="hero-info-item reveal reveal-delay-2"><div class="label">路线</div><div class="value">晋江 ↔ 平潭</div></div>
+<div class="hero-info-item reveal reveal-delay-3"><div class="label">住宿</div><div class="value">国惠国际酒店</div></div>
+</div>
+</div>
+</div>
+<div class="card-list" style="margin-top:-40px;position:relative;z-index:3">
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="card-badge">🏨 五星酒店 · 携程 4.8</div>
+<h3>平潭国惠国际酒店</h3>
+<p class="en-name">Guohui International Hotel, Pingtan</p>
+<p>A级亲子酒店，配备儿童乐园、亲子主题房、亲子水上乐园。坐落于金井湾商务营运中心，尽享海岛度假体验。</p>
+<div class="meta">
+<span class="meta-tag">👶 亲子主题房</span>
+<span class="meta-tag">🏊 水上乐园</span>
+<span class="meta-tag">🎠 儿童乐园</span>
+<span class="meta-tag">🔌 充电桩</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB 2: ITINERARY -->
+<section class="tab-section" id="tab-itinerary">
+<div class="section-header">
+<div class="eyebrow">Itinerary</div>
+<h2>行程时间轴</h2>
+<p class="subtitle">4 days · 3 nights · Island Discovery</p>
+</div>
+<div class="timeline">
+<div class="timeline-day reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-card" onclick="toggleDay(this)">
+<div class="day-label">Day 1 · 8月9日 周日</div>
+<div class="day-title">出发 · 抵达</div>
+<div class="day-theme">晋江 → 平潭，开启海岛之旅</div>
+<div class="timeline-detail">
+<div class="timeline-item"><span class="time-dot"></span><div>🚗 晋江出发 → 平潭（约3小时，沈海高速 + 平潭海峡大桥）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🏨 抵达国惠国际酒店，办理入住</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🌅 傍晚酒店周边散步，熟悉环境</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🍽️ 晚餐：酒店附近觅食，初探平潭味道</div></div>
+</div>
+<div class="timeline-expand-hint">点击展开 ↓</div>
+</div>
+</div>
+<div class="timeline-day reveal reveal-delay-1">
+<div class="timeline-dot"></div>
+<div class="timeline-card" onclick="toggleDay(this)">
+<div class="day-label">Day 2 · 8月10日 周一</div>
+<div class="day-title">探索 · 打卡</div>
+<div class="day-theme">石头厝、风车田、蓝眼泪</div>
+<div class="timeline-detail">
+<div class="timeline-item"><span class="time-dot"></span><div>🏘️ 上午：北港村石头厝（百年石头房，文艺打卡圣地）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🍜 中午：品尝平潭特色美食（时来运转、海蛎煎）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🌬️ 下午：长江澳风车田（海边风车拍照，日落时分最美）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🏖️ 傍晚：坛南湾沙滩（亲子戏水、踏浪）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>✨ 晚上：蓝眼泪观赏（坛南湾/龙凤头，需天黑+退潮）</div></div>
+</div>
+<div class="timeline-expand-hint">点击展开 ↓</div>
+</div>
+</div>
+<div class="timeline-day reveal reveal-delay-2">
+<div class="timeline-dot"></div>
+<div class="timeline-card" onclick="toggleDay(this)">
+<div class="day-label">Day 3 · 8月11日 周二</div>
+<div class="day-title">深度 · 体验</div>
+<div class="day-theme">古城探秘、亲子乐园、二刷蓝眼泪</div>
+<div class="timeline-detail">
+<div class="timeline-item"><span class="time-dot"></span><div>🏯 上午：海坛古城 / 仙人井景区（天然海蚀洞奇观）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🍲 中午：特色美食探店（八珍炒糕、紫菜焖饭）</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🏊 下午：酒店亲子水上乐园 / 儿童乐园</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🚴 傍晚：环岛路骑行 / 自驾兜风看海</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🌊 晚上：二刷蓝眼泪（如天气允许）</div></div>
+</div>
+<div class="timeline-expand-hint">点击展开 ↓</div>
+</div>
+</div>
+<div class="timeline-day reveal reveal-delay-3">
+<div class="timeline-dot"></div>
+<div class="timeline-card" onclick="toggleDay(this)">
+<div class="day-label">Day 4 · 8月12日 周三</div>
+<div class="day-title">归途 · 回味</div>
+<div class="day-theme">带着海风的记忆，返回晋江</div>
+<div class="timeline-detail">
+<div class="timeline-item"><span class="time-dot"></span><div>🌅 上午：酒店早餐，享受最后的海岛时光</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🏨 中午前退房 check-out</div></div>
+<div class="timeline-item"><span class="time-dot"></span><div>🚗 自驾返回晋江（约3小时车程）</div></div>
+</div>
+<div class="timeline-expand-hint">点击展开 ↓</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB 3: FOOD -->
+<section class="tab-section" id="tab-food">
+<div class="section-header">
+<div class="eyebrow">Local Cuisine</div>
+<h2>美食地图</h2>
+<p class="subtitle">Taste of Pingtan Island</p>
+</div>
+<div class="card-list">
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="yuxin-badge">🌟 雨鑫推荐</div>
+<h3>海蛎煎</h3>
+<p class="en-name">Oyster Omelette</p>
+<p>平潭最经典的小吃，新鲜海蛎搭配地瓜粉和鸡蛋煎制，外酥里嫩，蘸上甜辣酱，鲜美无比。几乎每家大排档都有，但街边老摊最地道。</p>
+<div class="meta">
+<span class="meta-tag highlight">🔥 必吃</span>
+<span class="meta-tag">💰 人均 15-25元</span>
+<span class="meta-tag">📍 街边小摊/大排档</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="yuxin-badge">🌟 雨鑫推荐</div>
+<h3>时来运转</h3>
+<p class="en-name">Shílái Yùnzhuǎn</p>
+<p>平潭传统名点，地瓜粉皮包裹鲜美馅料（猪肉、虾仁、紫菜等），形如饺子，口感Q弹软糯。寓意时来运转、好运连连，逢年过节必做的点心。</p>
+<div class="meta">
+<span class="meta-tag highlight">🔥 必吃</span>
+<span class="meta-tag">💰 人均 20-35元</span>
+<span class="meta-tag">📍 当地餐馆</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>八珍炒糕</h3>
+<p class="en-name">Eight-Treasure Fried Cake</p>
+<p>用地瓜粉制成年糕，搭配虾仁、蛏子、鱿鱼、香菇等八种配料翻炒，Q弹鲜香。平潭宴席上的经典大菜，满满的海鲜风味。</p>
+<div class="meta">
+<span class="meta-tag highlight">🔥 特色</span>
+<span class="meta-tag">💰 人均 40-60元</span>
+<span class="meta-tag">📍 特色餐厅</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>天长地久</h3>
+<p class="en-name">Tiāncháng Dìjiǔ</p>
+<p>花生馅甜点，地瓜粉皮包裹炒花生碎和白糖，甜而不腻。与"时来运转"并称平潭两大传统名点，寓意天长地久。</p>
+<div class="meta">
+<span class="meta-tag">🍬 甜点</span>
+<span class="meta-tag">💰 人均 15-25元</span>
+<span class="meta-tag">📍 当地餐馆/小摊</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="yuxin-badge">🌟 雨鑫推荐</div>
+<h3>光饼</h3>
+<p class="en-name">Guāng Bǐng</p>
+<p>福建传统面饼，外皮酥脆内里柔软，可夹紫菜、海蛎等馅料。平潭光饼带有独特海味，是最佳伴手礼之一。</p>
+<div class="meta">
+<span class="meta-tag">🥖 面点</span>
+<span class="meta-tag">💰 人均 5-15元</span>
+<span class="meta-tag">📍 街边烘焙摊</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>紫菜焖饭</h3>
+<p class="en-name">Seaweed Braised Rice</p>
+<p>用当地紫菜与米饭同焖，加入猪肉丁、香菇等配料，鲜香扑鼻。平潭紫菜品质极佳，做出的焖饭格外美味。</p>
+<div class="meta">
+<span class="meta-tag">🍚 主食</span>
+<span class="meta-tag">💰 人均 20-35元</span>
+<span class="meta-tag">📍 当地餐馆</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>鱼丸 / 鱼面</h3>
+<p class="en-name">Fish Balls / Fish Noodles</p>
+<p>鱼丸用新鲜鱼肉手打而成，弹牙鲜美；鱼面则是鱼肉制成面条，口感独特。加入骨汤煮成一碗，是平潭人的日常美味。</p>
+<div class="meta">
+<span class="meta-tag">🐟 海鲜</span>
+<span class="meta-tag">💰 人均 15-30元</span>
+<span class="meta-tag">📍 早餐店/面馆</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>海鲜大排档</h3>
+<p class="en-name">Seafood Night Market</p>
+<p>平潭靠海，海鲜新鲜到极致！石斑鱼清蒸、花蟹白灼、基围虾盐焗、鱿鱼铁板烧……到海鲜大排档点上一桌，才是海岛正确打开方式。</p>
+<div class="meta">
+<span class="meta-tag highlight">🦐 海鲜盛宴</span>
+<span class="meta-tag">💰 人均 80-150元</span>
+<span class="meta-tag">📍 龙凤头海鲜街</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB 4: SPOTS -->
+<section class="tab-section" id="tab-spots">
+<div class="section-header">
+<div class="eyebrow">Photo Spots</div>
+<h2>打卡美景</h2>
+<p class="subtitle">Capture the Island Beauty</p>
+</div>
+<div class="card-list">
+<div class="card reveal">
+<div class="card-glow"></div>
+<span class="spot-star">⭐ 重点推荐</span>
+<h3>🌊 蓝眼泪</h3>
+<p class="en-name">Blue Tears · Bioluminescence</p>
+<p>大自然的魔法——海水中的夜光藻（甲藻）受到扰动后发出梦幻蓝色荧光，宛如海洋在流泪。平潭是中国最佳蓝眼泪观赏地之一，每年4-8月为最佳季节。</p>
+<div class="tip-box">📸 拍照Tips：需天黑后（20:00后）+ 退潮时段 + 甲藻聚集。手机夜景模式/长曝光效果最佳。推荐观赏点：坛南湾、龙凤头海滩、北港村。</div>
+<div class="warning-box">⚠️ 台风期间蓝眼泪出现概率降低，海浪较大时请勿靠近水边。</div>
+<div class="meta">
+<span class="meta-tag highlight">✨ 4-8月最佳</span>
+<span class="meta-tag">🌙 需天黑+退潮</span>
+<span class="meta-tag">📍 坛南湾/龙凤头/北港村</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>🌬️ 长江澳风车田</h3>
+<p class="en-name">Changjiang'ao Wind Farm</p>
+<p>海边成排的白色风力发电机，与蓝天碧海构成极致画面。日落时分最美，风车在金色光线中缓缓转动，是平潭最具辨识度的打卡地标。</p>
+<div class="tip-box">📸 拍照Tips：日落前1小时到达，逆光剪影效果绝佳。沙滩上拍仰角更壮观。</div>
+<div class="meta">
+<span class="meta-tag highlight">🌅 日落最美</span>
+<span class="meta-tag">📍 长江澳沙滩</span>
+<span class="meta-tag">🆓 免费</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>🏘️ 北港村石头厝</h3>
+<p class="en-name">Beigangcun Stone Houses</p>
+<p>百年历史的石头房子村落，用当地花岗岩砌成，冬暖夏凉。如今被改造为民宿和文创空间，古朴与文艺完美结合，是摄影和漫步的好去处。</p>
+<div class="tip-box">📸 拍照Tips：清晨或傍晚光线柔和时最佳。石头巷子里有很多文艺小店，随手都是大片。</div>
+<div class="meta">
+<span class="meta-tag">🎨 文艺打卡</span>
+<span class="meta-tag">📍 平潭北港村</span>
+<span class="meta-tag">🆓 免费</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>🏖️ 坛南湾</h3>
+<p class="en-name">Tannan Bay</p>
+<p>平潭最美的白沙滩，沙质细腻，海水清澈。白天可以戏水踏浪、堆沙堡，夜晚有机会邂逅蓝眼泪，一个沙滩两种体验。</p>
+<div class="tip-box">📸 拍照Tips：午后阳光下沙滩呈银白色。防晒一定要到位！</div>
+<div class="meta">
+<span class="meta-tag highlight">🏖️ 白沙滩</span>
+<span class="meta-tag">📍 平潭坛南湾</span>
+<span class="meta-tag">👶 亲子友好</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>🏯 海坛古城</h3>
+<p class="en-name">Haitan Ancient Town</p>
+<p>以闽南建筑风格为主的仿古建筑群，融合平潭渔家文化。青石板路、红砖厝、石牌坊，适合悠闲漫步，体验平潭历史人文。</p>
+<div class="meta">
+<span class="meta-tag">🏛️ 人文历史</span>
+<span class="meta-tag">📍 海坛古城景区</span>
+<span class="meta-tag">🎭 民俗体验</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>🕳️ 仙人井</h3>
+<p class="en-name">Immortal's Well</p>
+<p>天然海蚀洞，海水从洞底涌入，涨潮时水柱冲天，气势磅礴。崖边俯瞰深不见底的洞穴，大自然的鬼斧神工令人叹为观止。</p>
+<div class="warning-box">⚠️ 台风期间崖边风大浪急，请注意安全，可能临时关闭。</div>
+<div class="meta">
+<span class="meta-tag highlight">🌊 自然奇观</span>
+<span class="meta-tag">📍 流水镇</span>
+<span class="meta-tag">⏰ 涨潮时最壮观</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<h3>🌉 平潭海峡大桥</h3>
+<p class="en-name">Pingtan Strait Bridge</p>
+<p>中国最长跨海大桥之一，连接大陆与平潭岛。自驾行驶在桥上，两侧碧海蓝天无际，是进入平潭的第一道震撼风景线。</p>
+<div class="tip-box">📸 拍照Tips：从岛上远眺大桥全景效果更佳。夜间桥灯亮起也很壮观。</div>
+<div class="meta">
+<span class="meta-tag">🚗 自驾必经</span>
+<span class="meta-tag">📍 进出平潭主通道</span>
+<span class="meta-tag">🌉 跨海大桥</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB 5: KIDS -->
+<section class="tab-section" id="tab-kids">
+<div class="section-header">
+<div class="eyebrow">Family Fun</div>
+<h2>亲子乐园</h2>
+<p class="subtitle">Fun for the Little Ones</p>
+</div>
+<div class="card-list">
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="child-badge">👶 亲子推荐</div>
+<h3>🏊 酒店亲子水上乐园</h3>
+<p>国惠国际酒店自带的亲子水上乐园，滑梯、戏水池、喷泉等设施齐全。不用出酒店就能玩水，台风天的完美备选方案！</p>
+<div class="meta">
+<span class="meta-tag highlight">📍 酒店内</span>
+<span class="meta-tag">👶 全年龄</span>
+<span class="meta-tag">🌧️ 雨天可玩</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="child-badge">👶 亲子推荐</div>
+<h3>🎠 酒店儿童乐园</h3>
+<p>室内游乐区，配备各种儿童游乐设施。刮风下雨也不怕，小朋友可以尽情玩耍，大人也可以稍作休息。</p>
+<div class="meta">
+<span class="meta-tag highlight">📍 酒店内</span>
+<span class="meta-tag">👶 全年龄</span>
+<span class="meta-tag">🏠 室内</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="child-badge">👶 亲子推荐</div>
+<h3>🏖️ 坛南湾沙滩戏水</h3>
+<p>细软白沙滩上挖沙堡、踏浪花、捡贝壳——孩子们的天然游乐场。浅水区安全性好，但记得做好防晒！</p>
+<div class="meta">
+<span class="meta-tag highlight">📍 坛南湾</span>
+<span class="meta-tag">👶 3岁+</span>
+<span class="meta-tag">☀️ 注意防晒</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="child-badge">👶 亲子推荐</div>
+<h3>🦀 赶海拾贝</h3>
+<p>退潮时分，带着小桶到礁石区，寻找小螃蟹、贝壳、海螺、海星。这是孩子与大海最亲密的互动，也是最棒的自然课堂。</p>
+<div class="meta">
+<span class="meta-tag highlight">🌊 退潮时段</span>
+<span class="meta-tag">👶 3岁+</span>
+<span class="meta-tag">👟 穿防滑鞋</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="child-badge">👶 亲子推荐</div>
+<h3>🚴 环岛路亲子骑行</h3>
+<p>沿着平潭环岛路骑行，海风拂面，沿途海景如画。可以租亲子双人车或带儿童座椅的自行车，一起享受海边骑行的乐趣。</p>
+<div class="meta">
+<span class="meta-tag highlight">📍 环岛路</span>
+<span class="meta-tag">👶 4岁+</span>
+<span class="meta-tag">⏰ 傍晚最佳</span>
+</div>
+</div>
+<div class="card reveal">
+<div class="card-glow"></div>
+<div class="child-badge">👶 亲子推荐</div>
+<h3>✨ 夜观蓝眼泪</h3>
+<p>带着孩子一起见证大自然的魔法——海水中发出梦幻蓝光！这是最好的亲子科普体验，让孩子了解生物发光现象（bioluminescence）。</p>
+<div class="meta">
+<span class="meta-tag highlight">🌙 夜间活动</span>
+<span class="meta-tag">👶 全年龄</span>
+<span class="meta-tag">🔬 科普教育</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB 6: WEATHER -->
+<section class="tab-section" id="tab-weather">
+<div class="section-header">
+<div class="eyebrow">Weather &amp; Safety</div>
+<h2>天气 · 台风</h2>
+<p class="subtitle">Stay Safe, Stay Informed</p>
+</div>
+
+<div class="weather-alert reveal">
+<div class="alert-header">
+<span class="alert-icon">🌀</span>
+<span class="alert-title">台风"海豚"</span>
+<span class="alert-level">蓝色预警</span>
+</div>
+<p>台风"海豚"正影响福建沿海地区。平潭作为离岸海岛，受外围环流影响较大。行程期间请密切关注台风路径变化，沿海景点可能临时关闭，海上活动需格外注意安全。蓝眼泪观赏受台风影响可能受限，建议降低预期。</p>
+</div>
+
+<div class="weather-grid">
+<div class="weather-card reveal">
+<div class="w-date">8月9日</div>
+<div class="w-day">周日 · Day 1</div>
+<div class="w-icon">🌥️</div>
+<div class="w-temp">29°C</div>
+<div class="w-desc">阴，零星小雨</div>
+<div class="w-wind">西南风3级 · 体感32°C</div>
+</div>
+<div class="weather-card reveal reveal-delay-1">
+<div class="w-date">8月10日</div>
+<div class="w-day">周一 · Day 2</div>
+<div class="w-icon">⛅</div>
+<div class="w-temp">30°C</div>
+<div class="w-desc">多云转阵雨</div>
+<div class="w-wind">受台风外围影响</div>
+</div>
+<div class="weather-card reveal reveal-delay-2">
+<div class="w-date">8月11日</div>
+<div class="w-day">周二 · Day 3</div>
+<div class="w-icon">🌧️</div>
+<div class="w-temp">28°C</div>
+<div class="w-desc">阵雨</div>
+<div class="w-wind">风力可能增大</div>
+</div>
+<div class="weather-card reveal reveal-delay-3">
+<div class="w-date">8月12日</div>
+<div class="w-day">周三 · Day 4</div>
+<div class="w-icon">⛅</div>
+<div class="w-temp">29°C</div>
+<div class="w-desc">多云</div>
+<div class="w-wind">台风远离减弱</div>
+</div>
+</div>
+
+<div class="section-header" style="padding-top:10px">
+<div class="eyebrow">Safety Tips</div>
+<h2>安全注意事项</h2>
+</div>
+<div class="safety-list">
+<div class="safety-item reveal"><div class="safety-num">1</div><p>实时关注台风路径，推荐下载"台风路径"App，掌握最新动态</p></div>
+<div class="safety-item reveal"><div class="safety-num">2</div><p>沿海景点（仙人井、坛南湾等）台风期间可能临时关闭，出发前务必确认开放情况</p></div>
+<div class="safety-item reveal"><div class="safety-num">3</div><p>蓝眼泪观赏受台风影响概率大，建议降低期望，看到就是惊喜</p></div>
+<div class="safety-item reveal"><div class="safety-num">4</div><p>随身携带雨具，穿防滑鞋，海边礁石湿滑注意安全</p></div>
+<div class="safety-item reveal"><div class="safety-num">5</div><p>自驾注意：海峡大桥台风时可能限行或封桥，出发前查询路况信息</p></div>
+<div class="safety-item reveal"><div class="safety-num">6</div><p>酒店配备充电桩，电车可充电，提前预约充电位</p></div>
+<div class="safety-item reveal"><div class="safety-num">7</div><p>紧急电话：急救 120 / 报警 110 / 平潭旅游投诉 0591-86160266</p></div>
+</div>
+</section>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+<div class="nav-inner">
+<button class="nav-btn active" onclick="switchTab('home')" data-tab="home">
+<span class="nav-icon">🏠</span><span>首页</span>
+</button>
+<button class="nav-btn" onclick="switchTab('itinerary')" data-tab="itinerary">
+<span class="nav-icon">🗓</span><span>行程</span>
+</button>
+<button class="nav-btn" onclick="switchTab('food')" data-tab="food">
+<span class="nav-icon">🍜</span><span>美食</span>
+</button>
+<button class="nav-btn" onclick="switchTab('spots')" data-tab="spots">
+<span class="nav-icon">📸</span><span>打卡</span>
+</button>
+<button class="nav-btn" onclick="switchTab('kids')" data-tab="kids">
+<span class="nav-icon">👶</span><span>亲子</span>
+</button>
+<button class="nav-btn" onclick="switchTab('weather')" data-tab="weather">
+<span class="nav-icon">🌀</span><span>天气</span>
+</button>
+</div>
+</nav>
+
+<script>
+// Tab switching
+function switchTab(tab){
+document.querySelectorAll('.tab-section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+document.getElementById('tab-'+tab).classList.add('active');
+document.querySelector('[data-tab="'+tab+'"]').classList.add('active');
+window.scrollTo({top:0,behavior:'smooth'});
+// Re-trigger reveal animations
+setTimeout(()=>{
+document.querySelectorAll('#tab-'+tab+' .reveal').forEach(el=>{
+el.classList.remove('visible');
+void el.offsetWidth;
+observer.observe(el);
+});
+},100);
+}
+
+// Timeline toggle
+function toggleDay(card){
+const detail=card.querySelector('.timeline-detail');
+const hint=card.querySelector('.timeline-expand-hint');
+const isOpen=detail.classList.contains('open');
+document.querySelectorAll('.timeline-detail').forEach(d=>d.classList.remove('open'));
+document.querySelectorAll('.timeline-expand-hint').forEach(h=>h.textContent='点击展开 ↓');
+if(!isOpen){
+detail.classList.add('open');
+if(hint) hint.textContent='点击收起 ↑';
+}
+}
+
+// Stars
+(function(){
+const c=document.getElementById('stars');
+for(let i=0;i<60;i++){
+const s=document.createElement('div');
+s.className='star';
+s.style.left=Math.random()*100+'%';
+s.style.top=Math.random()*70+'%';
+s.style.animationDelay=Math.random()*3+'s';
+s.style.animationDuration=(2+Math.random()*3)+'s';
+if(Math.random()>.7) s.style.width=s.style.height='3px';
+c.appendChild(s);
+}
+})();
+
+// Intersection Observer for reveal
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
